@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main_Menu.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scene/GMP_Scene_Center.unity
+    guid: 21bf39644439fd642859ae2216525d98
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scene/GMP_Scene_Left.unity
+    guid: c28f6da059c84ac429373b6705fb3c99
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scene/GMP_Scene_Right.unity
+    guid: e963367df91e5c546befff7e808f05e2
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scene/GMP_Scene_Top.unity
+    guid: f29fa09102d46974791388063daa389c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
