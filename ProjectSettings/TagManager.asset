@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Background_Day
-  - Background_Night
   layers:
   - Default
   - TransparentFX

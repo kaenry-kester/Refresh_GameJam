@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 1191727784}
   - component: {fileID: 1191727783}
   - component: {fileID: 1191727782}
+  - component: {fileID: 1191727785}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -224,18 +225,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191727780}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.1011, y: 5.1011, z: 5.1011}
+  m_LocalScale: {x: 6.6062107, y: 9.909316, z: 9.909316}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1963375012}
   m_Father: {fileID: 1997836244}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.043, y: -402}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 12.04303, y: -366}
+  m_SizeDelta: {x: 36, y: 15.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191727782
 MonoBehaviour:
@@ -313,8 +314,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -556663896244417668, guid: fd9cfb34a0bb8b348baf39dab96a04ec, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -331,6 +332,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191727780}
   m_CullTransparentMesh: 1
+--- !u!114 &1191727785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191727780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567d3f38fb7baf046b49564ca8a3afd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMGHover_Door_BackgroundRight
+  IMG_Default: {fileID: -556663896244417668, guid: fd9cfb34a0bb8b348baf39dab96a04ec, type: 3}
+  IMG_Hover: {fileID: -26329759613171845, guid: 195cfc8296b0b27448bbd2b6a5ed6655, type: 3}
 --- !u!1 &1513418146
 GameObject:
   m_ObjectHideFlags: 0
