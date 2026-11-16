@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay_Scene/GMP_Scene_Top.unity
     guid: f29fa09102d46974791388063daa389c
+  - enabled: 1
+    path: Assets/Scenes/Initial_Scene.unity
+    guid: 6b34cb71ca45aac40b86a0ddaf54371c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

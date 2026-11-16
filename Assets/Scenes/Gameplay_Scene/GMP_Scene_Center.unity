@@ -130,6 +130,8 @@ GameObject:
   - component: {fileID: 3151835}
   - component: {fileID: 3151837}
   - component: {fileID: 3151836}
+  - component: {fileID: 3151838}
+  - component: {fileID: 3151839}
   m_Layer: 5
   m_Name: Tubos de Ensaio
   m_TagString: Untagged
@@ -146,14 +148,14 @@ RectTransform:
   m_GameObject: {fileID: 3151834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.071931, z: 1}
+  m_LocalScale: {x: 1.616648, y: 1.3512673, z: 0.73484}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1678915472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -145.4, y: -227.7}
+  m_AnchoredPosition: {x: -145.4, y: -288}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3151836
@@ -194,6 +196,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3151834}
   m_CullTransparentMesh: 1
+--- !u!114 &3151838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e566aa178e168642b36dd0b279b9307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
+--- !u!114 &3151839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 1, g: 0.6784314, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: 5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &199813160
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +532,8 @@ GameObject:
   - component: {fileID: 718787529}
   - component: {fileID: 718787531}
   - component: {fileID: 718787530}
+  - component: {fileID: 718787532}
+  - component: {fileID: 718787533}
   m_Layer: 5
   m_Name: "Microsc\xF3pio"
   m_TagString: Untagged
@@ -519,14 +550,14 @@ RectTransform:
   m_GameObject: {fileID: 718787528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.5501, z: 1}
+  m_LocalScale: {x: 4.0084, y: 4.646282, z: 1.822}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1678915472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -444.1, y: -167.49}
+  m_AnchoredPosition: {x: -458, y: -110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &718787530
@@ -567,6 +598,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718787528}
   m_CullTransparentMesh: 1
+--- !u!114 &718787532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718787528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e566aa178e168642b36dd0b279b9307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
+--- !u!114 &718787533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718787528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 1, g: 0.6769231, b: 0, a: 1}
+  m_EffectDistance: {x: 1.5, y: 1.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1263563964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,14 +1503,14 @@ RectTransform:
   m_GameObject: {fileID: 1914808801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2, y: 3.1876252, z: 1}
+  m_LocalScale: {x: 4.8633423, y: 6.061588, z: 1.9016}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1678915472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 505.8, y: -171.8}
+  m_AnchoredPosition: {x: 459, y: -102}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914808803
@@ -1467,8 +1525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567d3f38fb7baf046b49564ca8a3afd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IMGHover_Door_BackgroundRight
-  IMG_Default: {fileID: -2833024720089436574, guid: 7f97768ca0f23bb4d81e28b48d2af357, type: 3}
-  IMG_Hover: {fileID: -3019950440615680727, guid: 2c354e2f500abdf4f862761e473c78ab, type: 3}
+  IMG_Default: {fileID: 21300000, guid: 7f97768ca0f23bb4d81e28b48d2af357, type: 3}
+  IMG_Hover: {fileID: 21300000, guid: 2c354e2f500abdf4f862761e473c78ab, type: 3}
 --- !u!114 &1914808804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1489,7 +1547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2833024720089436574, guid: 7f97768ca0f23bb4d81e28b48d2af357, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f97768ca0f23bb4d81e28b48d2af357, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
