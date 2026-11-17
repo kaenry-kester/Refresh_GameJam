@@ -18,6 +18,8 @@ public class InventoryToggle : MonoBehaviour
     [SerializeField] Direcao direcao = Direcao.DireitaHorizontal;
     [SerializeField] RectTransform painel;              // a barra com os slots
     [SerializeField] RectTransform mochila;             // vazio = usa o próprio objeto
+    [SerializeField] RectTransform orelha;              // opcional: ponta da barra que fica sempre visível
+    [SerializeField, Min(0.1f)] float escalaOrelhaFechada = 1.5f; // tamanho da orelha com a barra recolhida
     [SerializeField] bool comecaAberto = false;
 
     [Header("Timing - Abrir (segundos)")]
@@ -51,6 +53,15 @@ public class InventoryToggle : MonoBehaviour
         // Pivô na borda que encosta na mochila, para a barra esticar a partir dela.
         var pivo = direcao == Direcao.DireitaHorizontal ? new Vector2(0f, 0.5f) : new Vector2(0.5f, 1f);
         DefinirPivoMantendoPosicao(painel, pivo);
+
+        // A orelha fica com o pivô na borda que encosta na barra e com as mesmas âncoras da barra,
+        // para poder ser posicionada exatamente na ponta dela.
+        if (orelha)
+        {
+            orelha.anchorMin = painel.anchorMin;
+            orelha.anchorMax = painel.anchorMax;
+            orelha.pivot = pivo;
+        }
 
         aberto = comecaAberto;
         barra = aberto ? Vector2.one : new Vector2(0f, 1f);
@@ -128,6 +139,32 @@ public class InventoryToggle : MonoBehaviour
         if (painel.IsChildOf(mochila))
             escBarra = new Vector3(escBarra.x / escBolsa.x, escBarra.y / escBolsa.y, 1f);
         painel.localScale = escBarra;
+
+        AplicarOrelha(escBolsa);
+    }
+
+    // Coloca a orelha na ponta da barra. Ela acompanha a espessura da barra (squash & stretch),
+    // mas não estica no comprimento, para não deformar.
+    // Conforme a barra recolhe, a orelha cresce até 'escalaOrelhaFechada' (e volta a 1 ao abrir).
+    void AplicarOrelha(Vector3 escBolsa)
+    {
+        if (!orelha) return;
+
+        float aberta = Mathf.Clamp01(barra.x); // 0 = recolhida, 1 = aberta
+        float tamanho = Mathf.Lerp(escalaOrelhaFechada, 1f, aberta);
+
+        if (direcao == Direcao.DireitaHorizontal)
+        {
+            float ponta = painel.anchoredPosition.x + painel.rect.width * painel.localScale.x;
+            orelha.anchoredPosition = new Vector2(ponta, painel.anchoredPosition.y);
+            orelha.localScale = new Vector3(tamanho / escBolsa.x, painel.localScale.y * tamanho, 1f);
+        }
+        else
+        {
+            float ponta = painel.anchoredPosition.y - painel.rect.height * painel.localScale.y;
+            orelha.anchoredPosition = new Vector2(painel.anchoredPosition.x, ponta);
+            orelha.localScale = new Vector3(painel.localScale.x * tamanho, tamanho / escBolsa.y, 1f);
+        }
     }
 
     Vector3 ParaEscala(Vector2 v) =>
