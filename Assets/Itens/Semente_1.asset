@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: Imperatriz do Brasil
   icone: {fileID: 3550800426882604243, guid: b87ac8dfda5e17a47930e31735f756c8, type: 3}
+  iconeFrigorificoPre: {fileID: 3550800426882604243, guid: b87ac8dfda5e17a47930e31735f756c8, type: 3}
+  iconeFrigorificoPos: {fileID: -2462968286852685367, guid: 4927aa89bba55b44796bfa249c0a2983, type: 3}
   ehSemente: 1
   spritePlantado: {fileID: 0}

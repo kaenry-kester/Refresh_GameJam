@@ -16,6 +16,11 @@ public class InventorySlot : MonoBehaviour,
     [SerializeField] TMP_Text qtd;
     [SerializeField, Range(0f, 1f)] float alphaDuranteArraste = 0.35f;
 
+    [Header("Timer (só no frigorífico)")]
+    [SerializeField] GameObject indicador; // objeto que agrupa o círculo (some com o slot vazio)
+    [SerializeField] Image circulo;        // a parte que vai se fechando
+    [SerializeField] GameObject concluido; // opcional: aparece quando completa (ex.: o ✔)
+
     // -1 = automático: usa a ordem do slot entre os irmãos (1º slot = 0, 2º = 1...)
     [SerializeField] int indice = -1;
     public int Indice { get => indice; set => indice = value; }
@@ -28,6 +33,7 @@ public class InventorySlot : MonoBehaviour,
         canvas = GetComponentInParent<Canvas>().rootCanvas;
 
         icone.preserveAspect = true;
+        icone.raycastTarget = true; // dá para pegar a semente clicando em qualquer parte do ícone
 
         // Índice automático pela posição visual: esquerda -> direita, cima -> baixo
         if (indice < 0 && transform.parent)
@@ -47,6 +53,38 @@ public class InventorySlot : MonoBehaviour,
             gameObject.AddComponent<Image>().color = Color.clear;
 
         if (qtd) qtd.raycastTarget = false;
+
+        // Círculo que se fecha no sentido horário, começando no topo
+        if (circulo)
+        {
+            circulo.type = Image.Type.Filled;
+            circulo.fillMethod = Image.FillMethod.Radial360;
+            circulo.fillOrigin = (int)Image.Origin360.Top;
+            circulo.fillClockwise = true;
+            circulo.raycastTarget = false;
+        }
+    }
+
+    bool mostrandoPos;
+
+    void Update()
+    {
+        if (local != Inventario.Local.Frigorifico) return;
+
+        var e = Entrada;
+        if (e == null) return;
+
+        if (circulo) circulo.fillAmount = e.Progresso;
+        if (e.Pronta != mostrandoPos) Atualizar(); // completou -> troca para o sprite "pós"
+    }
+
+    Inventario.Entrada Entrada
+    {
+        get
+        {
+            var dados = Inventario.De(local);
+            return indice >= 0 && indice < dados.Count ? dados[indice] : null;
+        }
     }
 
     // Cada slot se atualiza sozinho: vazio = invisível (só aparece a arte da barra)
@@ -55,10 +93,22 @@ public class InventorySlot : MonoBehaviour,
 
     void Atualizar()
     {
-        var dados = Inventario.De(local);
-        var e = indice >= 0 && indice < dados.Count ? dados[indice] : null;
-        if (e != null) Definir(e.item.icone, e.qtd);
+        var e = Entrada;
+        bool noFrigorifico = local == Inventario.Local.Frigorifico;
+        mostrandoPos = e != null && e.Pronta;
+
+        if (e != null)
+        {
+            var sprite = e.item.icone;
+            if (noFrigorifico && mostrandoPos && e.item.iconeFrigorificoPos) sprite = e.item.iconeFrigorificoPos;
+            else if (noFrigorifico && e.item.iconeFrigorificoPre) sprite = e.item.iconeFrigorificoPre;
+            Definir(sprite, e.qtd);
+        }
         else Limpar();
+
+        if (indicador) indicador.SetActive(noFrigorifico && e != null);
+        if (circulo) circulo.fillAmount = e != null ? e.Progresso : 0f;
+        if (concluido) concluido.SetActive(mostrandoPos);
     }
 
     public void Definir(Sprite sprite, int quantidade)
@@ -80,7 +130,7 @@ public class InventorySlot : MonoBehaviour,
     public Inventario.Local Local => local;
     public bool PodeReceber(ItemData item) => Inventario.PodeAdicionarNoSlot(item, indice, local);
     public bool Visivel => isActiveAndEnabled &&
-        transform.lossyScale.x > canvas.transform.lossyScale.x * 0.5f; // barra recolhida = escala ~0
+        transform.lossyScale.x > canvas.transform.lossyScale.x * 0.05f; // barra recolhida = escala ~0
 
     bool TemItem => indice >= 0 && indice < Inventario.De(local).Count && Inventario.De(local)[indice] != null;
 

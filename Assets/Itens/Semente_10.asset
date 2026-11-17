@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: Pau-Brasil bonsai
   icone: {fileID: 7810020213435929108, guid: b0257122834ce18438a32731d08482c8, type: 3}
+  iconeFrigorificoPre: {fileID: 8845015577212307085, guid: 9e5c294919e547a45afe574026519f96, type: 3}
+  iconeFrigorificoPos: {fileID: 8688529562779333375, guid: 4bf73df1f9e742c41b1367f935472bd7, type: 3}
   ehSemente: 1
   spritePlantado: {fileID: 0}

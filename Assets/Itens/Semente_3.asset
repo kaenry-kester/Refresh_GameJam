@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: "Orqu\xEDdea Cattleya Alaorii"
   icone: {fileID: -149108574998840961, guid: 3128abbbbc45fcb40b53ac9809efff75, type: 3}
+  iconeFrigorificoPre: {fileID: -149108574998840961, guid: 3128abbbbc45fcb40b53ac9809efff75, type: 3}
+  iconeFrigorificoPos: {fileID: -4676619508392302570, guid: 147499d1a5f04554c9ff922e24ad5afb, type: 3}
   ehSemente: 1
   spritePlantado: {fileID: 0}

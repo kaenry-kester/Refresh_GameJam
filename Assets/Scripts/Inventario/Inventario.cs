@@ -13,7 +13,19 @@ public static class Inventario
     public const int CapacidadeFrigorifico = 12;
     public const int MaxPorSlotFrigorifico = 1; // no frigorífico só cabe 1 item por slot
 
-    public class Entrada { public ItemData item; public int qtd; }
+    public const float TempoFrigorifico = 180f; // segundos (3 minutos) para a semente ficar "pós"
+
+    public class Entrada
+    {
+        public ItemData item;
+        public int qtd;
+        public bool noFrigorifico; // controlado pelo Inventario
+        public float inicio;       // Time.time em que entrou no frigorífico
+
+        // 0 = acabou de entrar, 1 = pronta (pós). Fora do frigorífico é sempre 0.
+        public float Progresso => noFrigorifico ? Mathf.Clamp01((Time.time - inicio) / TempoFrigorifico) : 0f;
+        public bool Pronta => Progresso >= 1f;
+    }
     static readonly Entrada[] slots = new Entrada[Capacidade];
     static readonly Entrada[] frigorifico = new Entrada[CapacidadeFrigorifico];
 
@@ -38,7 +50,7 @@ public static class Inventario
             slots[i] = new Entrada { item = item, qtd = qtd };
         }
 
-        Mudou?.Invoke();
+        Avisar();
         return true;
     }
 
@@ -59,7 +71,7 @@ public static class Inventario
         if (a[i] == null) a[i] = new Entrada { item = item, qtd = qtd };
         else a[i].qtd += qtd;
 
-        Mudou?.Invoke();
+        Avisar();
         return true;
     }
 
@@ -73,7 +85,7 @@ public static class Inventario
 
         a[i].qtd -= qtd;
         if (a[i].qtd == 0) a[i] = null;
-        Mudou?.Invoke();
+        Avisar();
         return true;
     }
 
@@ -116,7 +128,7 @@ public static class Inventario
             origem[de] = b;
         }
 
-        Mudou?.Invoke();
+        Avisar();
         return true;
     }
 
@@ -124,6 +136,17 @@ public static class Inventario
     {
         int i = IndiceDe(item);
         return i >= 0 ? slots[i].qtd : 0;
+    }
+
+    // Marca o que entrou/saiu do frigorífico (inicia ou zera o tempo) e avisa a UI
+    static void Avisar()
+    {
+        foreach (var e in frigorifico)
+            if (e != null && !e.noFrigorifico) { e.noFrigorifico = true; e.inicio = Time.time; }
+        foreach (var e in slots)
+            if (e != null) e.noFrigorifico = false;
+
+        Mudou?.Invoke();
     }
 
     static int IndiceDe(ItemData item) => System.Array.FindIndex(slots, e => e != null && e.item == item);
