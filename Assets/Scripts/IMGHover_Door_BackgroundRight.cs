@@ -1,15 +1,17 @@
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// Clique na porta para abrir/fechar (troca de sprite).
 [RequireComponent(typeof(AudioSource))]
-public class IMGHover_Door_BackgroundRight : MonoBehaviour,
-    IPointerEnterHandler, IPointerExitHandler
+public class IMGHover_Door_BackgroundRight : MonoBehaviour, IPointerClickHandler
 {
     [Header("Imagens da Porta")]
+    [Tooltip("Sprite da porta fechada")]
     public Sprite IMG_Default;
+    [Tooltip("Sprite da porta aberta")]
     public Sprite IMG_Hover;
+    public bool estaAberta = false;
 
     [Header("Efeitos Sonoros")]
     public AudioClip somAbrir;
@@ -33,26 +35,25 @@ public class IMGHover_Door_BackgroundRight : MonoBehaviour,
         audioSource.playOnAwake = false;
         audioSource.loop = false;
         audioSource.spatialBlend = 0f;
+
+        AtualizarSprite();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        IMG.sprite = IMG_Hover;
+        estaAberta = !estaAberta;
+        AtualizarSprite();
 
-        if (somAbrir != null)
+        AudioClip som = estaAberta ? somAbrir : somFechar;
+        float volume = estaAberta ? volumeAbrir : volumeFechar;
+        if (som != null)
         {
-            audioSource.PlayOneShot(somAbrir, volumeAbrir);
+            audioSource.PlayOneShot(som, volume);
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    void AtualizarSprite()
     {
-        IMG.sprite = IMG_Default;
-
-        if (somFechar != null)
-        {
-            audioSource.PlayOneShot(somFechar, volumeFechar);
-        }
+        IMG.sprite = estaAberta ? IMG_Hover : IMG_Default;
     }
 }
-

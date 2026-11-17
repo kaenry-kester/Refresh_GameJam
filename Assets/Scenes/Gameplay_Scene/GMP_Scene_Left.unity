@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 1755338029}
   - component: {fileID: 1755338031}
   - component: {fileID: 1755338030}
+  - component: {fileID: 1755338032}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -598,6 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IMGHover_Door_BackgroundRight
   IMG_Default: {fileID: -556663896244417668, guid: fd9cfb34a0bb8b348baf39dab96a04ec, type: 3}
   IMG_Hover: {fileID: -26329759613171845, guid: 195cfc8296b0b27448bbd2b6a5ed6655, type: 3}
+  estaAberta: 0
   somAbrir: {fileID: 0}
   somFechar: {fileID: 0}
   volumeAbrir: 0.5
@@ -614,8 +616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
   somTroca: {fileID: 8300000, guid: 55491a7274ee191488cdbaa414dc6e6d, type: 3}
-  volume: 0.15
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!82 &1755338031
 AudioSource:
   m_ObjectHideFlags: 0
@@ -713,6 +719,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1755338032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755338024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
 --- !u!1 &1963660015
 GameObject:
   m_ObjectHideFlags: 0
