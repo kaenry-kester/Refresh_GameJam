@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: Sempre viva
   icone: {fileID: -1081622738530270715, guid: f9006ead58a2ef0478dcd93ca5e8fbe4, type: 3}
+  iconeFrigorificoPre: {fileID: -1081622738530270715, guid: f9006ead58a2ef0478dcd93ca5e8fbe4, type: 3}
+  iconeFrigorificoPos: {fileID: -6618596215858203136, guid: f37edc525bfa50d4eaa196d7784e2e1d, type: 3}
+  ehSemente: 1
+  spritePlantado: {fileID: 0}

@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: "Maracuj\xE1 nativo"
   icone: {fileID: -4611803420906572789, guid: 4a30f2592ad68634ab1ac3f13be6ee90, type: 3}
+  iconeFrigorificoPre: {fileID: -4611803420906572789, guid: 4a30f2592ad68634ab1ac3f13be6ee90, type: 3}
+  iconeFrigorificoPos: {fileID: 9089882590881760337, guid: 401f5eafab6bfcd4d9ff3e358439fdab, type: 3}
+  ehSemente: 1
+  spritePlantado: {fileID: 0}

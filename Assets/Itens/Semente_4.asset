@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: "Orqu\xEDdea pintada"
   icone: {fileID: 378153208203878471, guid: 62de2b0985729744299e28137fa8d027, type: 3}
+  iconeFrigorificoPre: {fileID: 378153208203878471, guid: 62de2b0985729744299e28137fa8d027, type: 3}
+  iconeFrigorificoPos: {fileID: -2907215136980083832, guid: c51a4bf1069d0a14fb9880d7f9252c8a, type: 3}
+  ehSemente: 1
+  spritePlantado: {fileID: 0}
