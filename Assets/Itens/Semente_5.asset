@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: "Brom\xE9lia gravat\xE1"
   icone: {fileID: -7575719165886326049, guid: e011c108e5f878c4481591bc599c32e2, type: 3}
+  iconeFrigorificoPre: {fileID: -7575719165886326049, guid: e011c108e5f878c4481591bc599c32e2, type: 3}
+  iconeFrigorificoPos: {fileID: 6656859138449206107, guid: 57a4a7b7c70911d48af4f4f7ac0d2678, type: 3}
+  ehSemente: 1
+  spritePlantado: {fileID: 0}
