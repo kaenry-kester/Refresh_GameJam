@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45efbe3a796b9a84ca7c896fb6acf741, type: 3}
   m_Name: Semente_10
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  nome: Pau=brasil
+  nome: Pau-Brasil bonsai
   icone: {fileID: 7810020213435929108, guid: b0257122834ce18438a32731d08482c8, type: 3}
