@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class IMGHover_Door_BackgroundRight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
     public Sprite IMG_Default;
     public Sprite IMG_Hover;
 
