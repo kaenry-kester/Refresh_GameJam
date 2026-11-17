@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: "Orqu\xEDdea da pedra"
   icone: {fileID: -8271748055612555454, guid: 9e225999b87364b438c30dcf0a4c2386, type: 3}
+  ehSemente: 1
+  spritePlantado: {fileID: 0}

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   nome: Canela de ema
   icone: {fileID: -9027799955205899297, guid: d5745be342705be48929c6632d87364e, type: 3}
+  ehSemente: 1
+  spritePlantado: {fileID: 0}

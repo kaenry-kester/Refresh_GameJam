@@ -7,6 +7,10 @@ public class Vaso : MonoBehaviour
     public int id; // diferente em cada vaso da cena
     public bool criadoPorBotao; // marque só no prefab que o botão instancia
 
+    [Header("Plantio")]
+    [SerializeField] SpriteRenderer plantaRenderer; // filho do vaso que mostra a planta (opcional)
+    public ItemData Semente { get; private set; }
+
     const string CENA_ARRASTAR = "GMP_Scene_Top";
     const float Z_VASO = -1f; // à frente do holder, evita empate de clique
 
@@ -146,6 +150,21 @@ public class Vaso : MonoBehaviour
         }
 
         return maisPerto;
+    }
+
+    // Chamado pelo InventorySlot quando uma semente é solta em cima do vaso.
+    // Retorna true se plantou (aí o inventário consome 1 unidade).
+    public bool Plantar(ItemData item)
+    {
+        if (item == null || !item.ehSemente || Semente != null) return false;
+
+        Semente = item;
+        if (plantaRenderer)
+        {
+            plantaRenderer.sprite = item.spritePlantado ? item.spritePlantado : item.icone;
+            plantaRenderer.enabled = true;
+        }
+        return true;
     }
 
     void Encaixar()
