@@ -7,6 +7,6 @@ public class SceneController : MonoBehaviour
     public void ChangeScene(string Scene_Name)
     {
         SceneManager.LoadScene(Scene_Name);
-        Debug.Log("gggg " + Scene_Name);
+        Debug.Log("ggggg " + Scene_Name);
     }
 }
