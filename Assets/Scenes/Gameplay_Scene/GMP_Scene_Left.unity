@@ -217,6 +217,18 @@ MonoBehaviour:
           m_StringArgument: Upgrades
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 59059360}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &59059357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,104 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8762c3d0fb4bd2c4faba178c7f5db5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
---- !u!82 &59059360
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59059353}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &59059361
+--- !u!114 &59059360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,9 +288,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 59059353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &107584758
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +395,18 @@ MonoBehaviour:
           m_StringArgument: "Expedi\xE7\xE3o"
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 107584765}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &107584762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,104 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8762c3d0fb4bd2c4faba178c7f5db5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
---- !u!82 &107584765
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107584758}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &107584766
+--- !u!114 &107584765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -630,9 +466,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 107584758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &330413639
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +488,6 @@ GameObject:
   - component: {fileID: 330413643}
   - component: {fileID: 330413642}
   - component: {fileID: 330413645}
-  - component: {fileID: 330413646}
   - component: {fileID: 330413647}
   m_Layer: 5
   m_Name: Loja
@@ -731,6 +572,18 @@ MonoBehaviour:
           m_StringArgument: Loja
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 330413647}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &330413643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,103 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8762c3d0fb4bd2c4faba178c7f5db5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
---- !u!82 &330413646
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330413639}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &330413647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,9 +643,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 330413639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &737140029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,9 +1270,8 @@ GameObject:
   - component: {fileID: 1583065285}
   - component: {fileID: 1583065284}
   - component: {fileID: 1583065283}
-  - component: {fileID: 1583065286}
   - component: {fileID: 1583065287}
-  - component: {fileID: 1583065288}
+  - component: {fileID: 1583065286}
   m_Layer: 5
   m_Name: "Doa\xE7\xF5es"
   m_TagString: Untagged
@@ -1594,6 +1355,18 @@ MonoBehaviour:
           m_StringArgument: "Doa\xE7\xF5es"
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1583065287}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1583065284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1644,104 +1417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8762c3d0fb4bd2c4faba178c7f5db5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
---- !u!82 &1583065287
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583065280}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1583065288
+--- !u!114 &1583065287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1750,9 +1426,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583065280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &1731663820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,18 +1573,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755338024}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0003029776, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 9, z: 9}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1963660016}
+  m_Children: []
   m_Father: {fileID: 1731663824}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.035}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 810, y: -150}
-  m_SizeDelta: {x: 36, y: 15.5}
+  m_AnchoredPosition: {x: 873, y: 1}
+  m_SizeDelta: {x: 22.5193, y: 15.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755338026
 MonoBehaviour:
@@ -1985,14 +1666,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.69419724, b: 0.69419724, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -556663896244417668, guid: fd9cfb34a0bb8b348baf39dab96a04ec, type: 3}
+  m_Sprite: {fileID: 1671345815110512256, guid: 204e5d5f3b578b146a3ecf446939f76c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2022,9 +1703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567d3f38fb7baf046b49564ca8a3afd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IMGHover_Door_BackgroundRight
-  IMG_Default: {fileID: -556663896244417668, guid: fd9cfb34a0bb8b348baf39dab96a04ec, type: 3}
-  IMG_Hover: {fileID: -26329759613171845, guid: 195cfc8296b0b27448bbd2b6a5ed6655, type: 3}
+  IMG_Default: {fileID: 1671345815110512256, guid: 204e5d5f3b578b146a3ecf446939f76c, type: 3}
+  IMG_Hover: {fileID: 1671345815110512256, guid: 204e5d5f3b578b146a3ecf446939f76c, type: 3}
   estaAberta: 0
+  corDefault: {r: 1, g: 1, b: 1, a: 1}
+  corHover: {r: 0.6784314, g: 0.5764706, b: 0.5019608, a: 1}
   somAbrir: {fileID: 0}
   somFechar: {fileID: 0}
   volumeAbrir: 0.5
@@ -2156,81 +1839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
---- !u!1 &1963660015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1963660016}
-  - component: {fileID: 1963660018}
-  - component: {fileID: 1963660017}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1963660016
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963660015}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06238997, y: 0.07689207, z: 0.29709512}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1755338025}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.22, y: -0.33}
-  m_SizeDelta: {x: 79.28717, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1963660017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963660015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 1994717437632991298, guid: c694236a39d53ee478bf40ce9e3a7d38, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1963660018
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963660015}
-  m_CullTransparentMesh: 1
 --- !u!1 &2003329702
 GameObject:
   m_ObjectHideFlags: 0
