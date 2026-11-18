@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dentro do PC/Upgrade.unity
     guid: 383c274ba32359d4683d576e3fcd3a45
+  - enabled: 1
+    path: "Assets/Scenes/Microsc\xF3pio/Tela de Reconstru\xE7\xE3o.unity"
+    guid: fc1ecee9f8102ea4aa4eedfa0bf5e1b5
+  - enabled: 1
+    path: "Assets/Scenes/Microsc\xF3pio/Tela de Fus\xE3o.unity"
+    guid: 0625f1ceafdf70a4ba5a238bde942dee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
