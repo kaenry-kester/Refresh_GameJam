@@ -456,7 +456,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GMP_Scene_Center
+          m_StringArgument: Tela Preta
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &184440317
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead7cef065c2a7747ba9f006324be215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scene_PreGameplay
-  tempoEspera: 5
+  tempoEspera: 3
   TextArea: {fileID: 3084482}
   Text1: {fileID: 151012321}
   Text2: {fileID: 68013254}

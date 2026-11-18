@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Microsc\xF3pio/Tela de Fus\xE3o.unity"
     guid: 0625f1ceafdf70a4ba5a238bde942dee
+  - enabled: 1
+    path: Assets/Scenes/Tela Preta.unity
+    guid: 41cb3f368872d8d4e83f4d1a23a6cbf2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
