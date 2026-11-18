@@ -23,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Initial_Scene.unity
     guid: 6b34cb71ca45aac40b86a0ddaf54371c
+  - enabled: 1
+    path: "Assets/Scenes/Dentro do PC/Doa\xE7oes.unity"
+    guid: 4b0a58e155b16564782f1a33ba268b3b
+  - enabled: 1
+    path: "Assets/Scenes/Dentro do PC/Expedi\xE7\xF5es.unity"
+    guid: fbb83a8c2aa732c4eac33b91f1b03458
+  - enabled: 1
+    path: Assets/Scenes/Dentro do PC/Loja.unity
+    guid: 54902afd4985ec9409b4709c0eb91356
+  - enabled: 1
+    path: Assets/Scenes/Dentro do PC/Upgrade.unity
+    guid: 383c274ba32359d4683d576e3fcd3a45
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
