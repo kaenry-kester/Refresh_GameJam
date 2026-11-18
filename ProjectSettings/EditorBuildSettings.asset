@@ -44,6 +44,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tela Preta.unity
     guid: 41cb3f368872d8d4e83f4d1a23a6cbf2
+  - enabled: 1
+    path: Assets/Scenes/Fase1/Fase1_Center.unity
+    guid: 7a3f78fcfa89abf4ab22223e82d74b4b
+  - enabled: 1
+    path: Assets/Scenes/Fase1/Fase1_Left.unity
+    guid: 456c21c81fba5e6468f5a26c216c1c15
+  - enabled: 1
+    path: Assets/Scenes/Fase1/Fase1_Right.unity
+    guid: b9761ccf276dd474a9b8a54ddb20da9b
+  - enabled: 1
+    path: Assets/Scenes/Fase1/Fase1_Top.unity
+    guid: e003b1a321ce5a0439f425396ba89967
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
