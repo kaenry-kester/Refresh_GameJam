@@ -566,7 +566,7 @@ MonoBehaviour:
   volumeHover: 0.5
   volumeTroca: 0.5
   velocidadeHover: 1
-  velocidadeTroca: 1
+  velocidadeTroca: 1.5
 --- !u!82 &1191727787
 AudioSource:
   m_ObjectHideFlags: 0
