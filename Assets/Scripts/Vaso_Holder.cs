@@ -38,22 +38,22 @@ public class Vaso_Holder : MonoBehaviour
             switch (Vaso)
             {
                 case 1:
-                    transform.position = new Vector3(-4f, 2f, 0f);
+                    transform.position = new Vector3(-3.8f, 2f, 0f);
                     break;
                 case 2:
-                    transform.position = new Vector3(0f, 2f, 0f);
+                    transform.position = new Vector3(0.2f, 2f, 0f);
                     break;
                 case 3:
                     transform.position = new Vector3(4f, 2f, 0f);
                     break;
                 case 4:
-                    transform.position = new Vector3(-4f, 0f, 0f);
+                    transform.position = new Vector3(-3.8f, -0.8f, 0f);
                     break;
                 case 5:
-                    transform.position = new Vector3(0f, 0f, 0f);
+                    transform.position = new Vector3(0.2f, -0.8f, 0f);
                     break;
                 case 6:
-                    transform.position = new Vector3(4f, 0f, 0f);
+                    transform.position = new Vector3(4.38f, -0.8f, 0f);
                     break;
             }
 
@@ -64,22 +64,22 @@ public class Vaso_Holder : MonoBehaviour
             switch (Vaso)
             {
                 case 1:
-                    transform.position = new Vector3(-1.2f, 1.6f, 0f);
+                    transform.position = new Vector3(-1.2f, 1.78f, 0f);
                     break;
                 case 2:
-                    transform.position = new Vector3(-0.1f, 1.6f, 0f);
+                    transform.position = new Vector3(-0.1f, 1.78f, 0f);
                     break;
                 case 3:
-                    transform.position = new Vector3(1f, 1.6f, 0f);
+                    transform.position = new Vector3(0.9f, 1.78f, 0f);
                     break;
                 case 4:
-                    transform.position = new Vector3(-1.2f, 1.2f, 0f);
+                    transform.position = new Vector3(-1.2f, 1.36f, 0f);
                     break;
                 case 5:
-                    transform.position = new Vector3(-0.1f, 1.2f, 0f);
+                    transform.position = new Vector3(-0.1f, 1.36f, 0f);
                     break;
                 case 6:
-                    transform.position = new Vector3(1f, 1.2f, 0f);
+                    transform.position = new Vector3(0.9f, 1.36f, 0f);
                     break;
             }
         }

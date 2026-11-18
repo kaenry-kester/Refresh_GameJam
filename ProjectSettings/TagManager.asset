@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Background_Day
   - VasoHolder
+  - Semente
+  - Vaso
   layers:
   - Default
   - TransparentFX
