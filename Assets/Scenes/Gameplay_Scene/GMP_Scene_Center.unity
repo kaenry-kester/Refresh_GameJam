@@ -2326,7 +2326,7 @@ MonoBehaviour:
   somHover: {fileID: 0}
   somTroca: {fileID: 8300000, guid: ca21a6da740d9ca44992aaf06e342c43, type: 3}
   volumeHover: 0.5
-  volumeTroca: 0.5
+  volumeTroca: 0.1
   velocidadeHover: 1
   velocidadeTroca: 1
 --- !u!114 &656188007
@@ -5307,7 +5307,7 @@ MonoBehaviour:
   somHover: {fileID: 0}
   somTroca: {fileID: 8300000, guid: ca21a6da740d9ca44992aaf06e342c43, type: 3}
   volumeHover: 0.5
-  volumeTroca: 0.5
+  volumeTroca: 0.1
   velocidadeHover: 1
   velocidadeTroca: 1
 --- !u!82 &1622447039
@@ -6657,8 +6657,8 @@ MonoBehaviour:
   IMG_Default: {fileID: 21300000, guid: 7f97768ca0f23bb4d81e28b48d2af357, type: 3}
   IMG_Hover: {fileID: 21300000, guid: 2c354e2f500abdf4f862761e473c78ab, type: 3}
   estaAberta: 0
-  somAbrir: {fileID: 0}
-  somFechar: {fileID: 0}
+  somAbrir: {fileID: 8300000, guid: 36ce90595a6499c4bb7eca1115d9c2a4, type: 3}
+  somFechar: {fileID: 8300000, guid: 950ca65fc477c1340ab50210d66e9e93, type: 3}
   volumeAbrir: 0.5
   volumeFechar: 0.5
 --- !u!1 &2000843224
@@ -7467,7 +7467,7 @@ MonoBehaviour:
   volumeHover: 0.5
   volumeTroca: 0.5
   velocidadeHover: 1
-  velocidadeTroca: 1
+  velocidadeTroca: 1.45
 --- !u!114 &2095915993
 MonoBehaviour:
   m_ObjectHideFlags: 0
