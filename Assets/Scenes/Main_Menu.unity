@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
   somHover: {fileID: 8300000, guid: be9e43f87710757458017695add10ec7, type: 3}
-  somTroca: {fileID: 8300000, guid: 44277da7448dc6f4ab4410f73140fbf1, type: 3}
+  somTroca: {fileID: 8300000, guid: b5d8b7ae0f991f84dbb028688fcddc84, type: 3}
   volumeHover: 0.5
   volumeTroca: 0.5
   velocidadeHover: 1
