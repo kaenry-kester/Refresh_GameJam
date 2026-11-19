@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 5225173631093614418}
   - component: {fileID: 5707168533483816140}
   - component: {fileID: 3633086314145878123}
+  - component: {fileID: 7945675080912142861}
   m_Layer: 5
   m_Name: ButtonLUZ
   m_TagString: Untagged
@@ -1166,6 +1167,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e566aa178e168642b36dd0b279b9307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_Geral
+--- !u!114 &7945675080912142861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461540788185268390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0.7735849, g: 0.6399241, b: 0.28826985, a: 0.5}
+  m_EffectDistance: {x: 6.6, y: 8.39}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3631377710769690830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1540,7 @@ GameObject:
   - component: {fileID: 1363035233907976395}
   - component: {fileID: 6818399352856522929}
   - component: {fileID: 6635580573687901702}
+  - component: {fileID: 4742975329148377262}
   m_Layer: 5
   m_Name: ButtonLUZ-
   m_TagString: Untagged
@@ -1644,6 +1661,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e566aa178e168642b36dd0b279b9307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_Geral
+--- !u!114 &4742975329148377262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836175327935569104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0.7735849, g: 0.6399241, b: 0.28826985, a: 0.5}
+  m_EffectDistance: {x: 6.6, y: 8.39}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5180612849831673810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,7 +1763,6 @@ GameObject:
   - component: {fileID: 2793508479259042161}
   - component: {fileID: 8696905435266554579}
   - component: {fileID: 5239198728644489842}
-  - component: {fileID: 2796827420269368702}
   m_Layer: 5
   m_Name: ButtonCO2-
   m_TagString: Untagged
@@ -1840,18 +1871,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2796827420269368702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5336229760162592527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e566aa178e168642b36dd0b279b9307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_Geral
 --- !u!1 &6052572175147208492
 GameObject:
   m_ObjectHideFlags: 0
