@@ -29,4 +29,4 @@ MonoBehaviour:
     e loteamentos. A procura por suas flores manchadas levou \xE0 coleta excessiva."
   habitat: "Nascia sobre galhos de \xE1rvores em matas secas e restingas do litoral
     baiano, com calor e muita claridade."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

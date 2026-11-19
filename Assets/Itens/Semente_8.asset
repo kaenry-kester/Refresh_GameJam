@@ -30,4 +30,4 @@ MonoBehaviour:
     destruiu os campos pedregosos onde vivia."
   habitat: Vivia no Cerrado e nos campos rupestres do Brasil Central, em solos secos
     e pedregosos.
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

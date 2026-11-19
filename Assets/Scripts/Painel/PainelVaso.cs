@@ -68,7 +68,7 @@ public class PainelVaso : MonoBehaviour
     [Header("Botões")]
     [SerializeField] Button botaoFechar;   // Sair (X)
     [SerializeField] Button botaoVender;   // "Vender por R$ X,00"
-    [Tooltip("\"Manter na coleção\": a planta pronta vai para o inventário")]
+    [Tooltip("\"Manter na coleção\": só com a planta pronta; a versão final dela vai para o inventário")]
     [SerializeField] Button botaoColetar;
     [Tooltip("Botões ainda bloqueados (ex.: ButtonCO2, ButtonCO2-, ButtonLUZ, ButtonLUZ-)")]
     [SerializeField] Button[] botoesBloqueados;
@@ -234,9 +234,10 @@ public class PainelVaso : MonoBehaviour
         PosicionarPlanta(v);
 
         Escrever(textoVender, string.Format(formatoVender, v.PrecoVenda));
-        // Vender e Manter na coleção funcionam em qualquer fase (o preço acompanha o tamanho da planta)
+        // Vender funciona em qualquer fase (o preço acompanha o tamanho da planta).
+        // Manter na coleção só com a planta pronta (versão final vai para o inventário).
         if (botaoVender) botaoVender.interactable = true;
-        if (botaoColetar) botaoColetar.interactable = true;
+        if (botaoColetar) botaoColetar.interactable = v.Pronta;
     }
 
     void Vender()

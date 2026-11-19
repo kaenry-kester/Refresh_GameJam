@@ -30,4 +30,4 @@ MonoBehaviour:
     acabou com as \xFAltimas popula\xE7\xF5es."
   habitat: "Nascia em fendas de rochas \xEDngremes da Serra dos \xD3rg\xE3os (RJ),
     perto de cachoeiras, sempre envolta pela neblina da Mata Atl\xE2ntica."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

@@ -29,4 +29,4 @@ MonoBehaviour:
     A extra\xE7\xE3o de pedra nas encostas destruiu os \xFAltimos lugares onde crescia."
   habitat: "Nascia em fendas de pared\xF5es rochosos \xEDngremes do Paran\xE1 e de
     S\xE3o Paulo, com muita claridade e pouca terra."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

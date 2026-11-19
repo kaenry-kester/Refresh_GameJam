@@ -30,4 +30,4 @@ MonoBehaviour:
     n\xE3o sobrar nenhuma."
   habitat: "Vivia nos troncos e galhos das \xE1rvores da Mata Atl\xE2ntica do sul
     da Bahia, em lugares \xFAmidos e de meia-sombra."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

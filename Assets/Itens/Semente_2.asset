@@ -30,4 +30,4 @@ MonoBehaviour:
     acabaram com o que restou."
   habitat: "Crescia agarrada \xE0s pedras dos campos rupestres de Minas Gerais, sob
     sol forte e ventos constantes."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

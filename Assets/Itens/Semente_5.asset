@@ -30,4 +30,4 @@ MonoBehaviour:
     completaram o desaparecimento."
   habitat: "Crescia no solo arenoso das restingas e nas bordas da Mata Atl\xE2ntica,
     do Sul ao Nordeste do Brasil, em pleno sol."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

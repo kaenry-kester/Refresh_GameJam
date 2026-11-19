@@ -30,4 +30,4 @@ MonoBehaviour:
     e as queimadas impediram que ela se renovasse.
   habitat: "Nascia nos campos rupestres da Serra do Espinha\xE7o (MG), em solo arenoso,
     pobre e muito ensolarado."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

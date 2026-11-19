@@ -30,4 +30,4 @@ MonoBehaviour:
     e o uso da madeira em arcos de violino acabaram com as \xFAltimas \xE1rvores."
   habitat: "Origin\xE1rio da Mata Atl\xE2ntica do litoral brasileiro, do Rio Grande
     do Norte ao Rio de Janeiro, em clima quente e \xFAmido."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

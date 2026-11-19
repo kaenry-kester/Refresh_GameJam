@@ -30,4 +30,4 @@ MonoBehaviour:
     deixou de dar frutos."
   habitat: "Origin\xE1rio da Caatinga e do Cerrado, subia em arbustos e cercas sob
     sol forte e calor seco."
-  itemColhido: {fileID: 11400000}
+  itemColhido: {fileID: 0}

@@ -69,7 +69,9 @@ public class ItemData : ScriptableObject
     public ItemData ItemColhido(int fase = FaseFinal)
     {
         fase = Mathf.Clamp(fase, 0, FaseFinal);
-        if (fase == FaseFinal && itemColhido) return itemColhido;
+        // "Item Colhido" só vale se for um item de planta de verdade
+        // (não a própria semente nem outra semente, senão o inventário receberia uma semente)
+        if (fase == FaseFinal && itemColhido && itemColhido != this && !itemColhido.ehSemente) return itemColhido;
 
         if (colhidosGerados == null || colhidosGerados.Length != FaseFinal + 1)
             colhidosGerados = new ItemData[FaseFinal + 1];

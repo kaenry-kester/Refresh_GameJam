@@ -147,11 +147,12 @@ public class Vaso : MonoBehaviour
     static bool Contem(Bounds b, Vector3 p) =>
         p.x >= b.min.x && p.x <= b.max.x && p.y >= b.min.y && p.y <= b.max.y;
 
-    // "Manter na coleção": a planta (na fase em que está) vai para o inventário e o vaso fica vazio
+    // "Manter na coleção": só com a planta pronta (fase final). A versão final dela vai para o
+    // inventário (para ser usada depois) e o vaso fica vazio.
     public bool Colher()
     {
-        if (Semente == null) return false;
-        if (!Inventario.Adicionar(Semente.ItemColhido(Fase))) return false; // inventário cheio: não colhe
+        if (!Pronta) return false;
+        if (!Inventario.Adicionar(Semente.ItemColhido(ItemData.FaseFinal))) return false; // inventário cheio: não colhe
 
         Esvaziar();
         return true;
