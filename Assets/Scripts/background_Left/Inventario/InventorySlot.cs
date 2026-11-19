@@ -26,6 +26,8 @@ public class InventorySlot : MonoBehaviour,
     [SerializeField] GameObject indicador; // objeto que agrupa o círculo (some com o slot vazio)
     [SerializeField] Image circulo;        // a parte que vai se fechando
     [SerializeField] GameObject concluido; // opcional: aparece quando completa (ex.: o ✔)
+    [SerializeField] Color corCirculoPronto = new Color(0.3f, 0.85f, 0.3f, 1f); // círculo completo = verde
+    Color corCirculoOriginal = Color.white;
 
     // -1 = automático: usa a ordem do slot entre os irmãos (1º slot = 0, 2º = 1...)
     [SerializeField] int indice = -1;
@@ -68,6 +70,7 @@ public class InventorySlot : MonoBehaviour,
             circulo.fillOrigin = (int)Image.Origin360.Top;
             circulo.fillClockwise = true;
             circulo.raycastTarget = false;
+            corCirculoOriginal = circulo.color;
         }
     }
 
@@ -81,6 +84,7 @@ public class InventorySlot : MonoBehaviour,
         if (e == null) return;
 
         if (circulo) circulo.fillAmount = e.Progresso;
+        if (e.Pronta && e.item && e.item.viraNoFrigorifico) Inventario.Amadurecer(); // pré -> semente de verdade
         if (e.Pronta != mostrandoPos) Atualizar(); // completou -> troca para o sprite "pós"
     }
 
@@ -113,7 +117,11 @@ public class InventorySlot : MonoBehaviour,
         else Limpar();
 
         if (indicador) indicador.SetActive(noFrigorifico && e != null);
-        if (circulo) circulo.fillAmount = e != null ? e.Progresso : 0f;
+        if (circulo)
+        {
+            circulo.fillAmount = e != null ? e.Progresso : 0f;
+            circulo.color = mostrandoPos ? corCirculoPronto : corCirculoOriginal; // completo = verde
+        }
         if (concluido) concluido.SetActive(mostrandoPos);
     }
 

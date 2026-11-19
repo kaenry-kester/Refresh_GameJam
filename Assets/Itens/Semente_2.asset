@@ -23,7 +23,7 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: db8b508f12cef8c46a347b6fc5a10331, type: 3}
   spriteFinal: {fileID: 21300000, guid: 0b6c8828d9ade8143a18f311bb936f99, type: 3}
-  precoBase: 140
+  precoBase: 400
   aguaNecessaria: 25
   co2Necessario: 50
   luzNecessaria: 75

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 2d606a1669e982343801c03966439a6e
+guid: 4c3e2fdb391b2084cbb9a2ba36f80c6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7461379810918215841
-    second: Group 27_0
-  - first:
-      213: 3399214002792129783
-    second: Group 27_1
+      213: 7443360894679919780
+    second: cena do micro bo 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 27_0
+      name: cena do micro bo 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 45
-        width: 4195
-        height: 2614
+        x: 1
+        y: 2
+        width: 1101
+        height: 291
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a03d0ce7652c8760800000000000000
-      internalID: 7461379810918215841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Group 27_1
-      rect:
-        serializedVersion: 2
-        x: 969
-        y: 2647
-        width: 31
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7f465ff202f6c2f20800000000000000
-      internalID: 3399214002792129783
+      spriteID: 4ac2e6e0c412c4760800000000000000
+      internalID: 7443360894679919780
       vertices: []
       indices: 
       edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Group 27_0: 7461379810918215841
-      Group 27_1: 3399214002792129783
+      cena do micro bo 2_0: 7443360894679919780
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

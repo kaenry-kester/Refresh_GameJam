@@ -14,6 +14,7 @@ public static class Inventario
     public const int MaxPorSlotFrigorifico = 1; // no frigorífico só cabe 1 item por slot
 
     public const float TempoFrigorifico = 180f; // segundos (3 minutos) para a semente ficar "pós"
+    public const float TempoSementeFusao = 8f;  // semente nova da fusão (versão "pré") fica pronta em 8 segundos
 
     public class Entrada
     {
@@ -21,9 +22,10 @@ public static class Inventario
         public int qtd;
         public bool noFrigorifico; // controlado pelo Inventario
         public float inicio;       // Time.time em que entrou no frigorífico
+        public float duracao = TempoFrigorifico; // definido ao entrar no frigorífico
 
         // 0 = acabou de entrar, 1 = pronta (pós). Fora do frigorífico é sempre 0.
-        public float Progresso => noFrigorifico ? Mathf.Clamp01((Time.time - inicio) / TempoFrigorifico) : 0f;
+        public float Progresso => noFrigorifico ? Mathf.Clamp01((Time.time - inicio) / Mathf.Max(duracao, 0.01f)) : 0f;
         public bool Pronta => Progresso >= 1f;
     }
     static readonly Entrada[] slots = new Entrada[Capacidade];
@@ -55,9 +57,13 @@ public static class Inventario
     }
 
     // Coloca o item num slot específico (vazio ou com o mesmo item).
+    // Na geladeira só entram sementes "pré" (da fusão ou da reconstrução). Sementes normais não.
+    public static bool PodeIrPraGeladeira(ItemData item) => item && item.viraNoFrigorifico;
+
     public static bool PodeAdicionarNoSlot(ItemData item, int i, Local l = Local.Inventario, int qtd = 1)
     {
         if (item == null || !Valido(l, i)) return false;
+        if (l == Local.Frigorifico && !PodeIrPraGeladeira(item)) return false;
         var e = Array(l)[i];
         if (e == null) return qtd <= Limite(l);
         return e.item == item && e.qtd + qtd <= Limite(l);
@@ -97,6 +103,7 @@ public static class Inventario
     // Pilha com mais que maxMover em cima de item diferente -> não troca (volta pro slot).
     public static bool Mover(Local lDe, int de, Local lPara, int para, int maxMover = int.MaxValue)
     {
+        Amadurecer(); // semente pré que ficou pronta sai do frigorífico já como semente de verdade
         if (!Valido(lDe, de) || !Valido(lPara, para) || (lDe == lPara && de == para)) return false;
 
         var origem = Array(lDe);
@@ -104,6 +111,12 @@ public static class Inventario
         var a = origem[de];
         var b = destino[para];
         if (a == null) return false;
+
+        // Entrando na geladeira (vindo do inventário): só sementes "pré".
+        // Vale também para a troca de lugar, quando o item do inventário iria para a geladeira.
+        if (lPara == Local.Frigorifico && lDe != Local.Frigorifico && !PodeIrPraGeladeira(a.item)) return false;
+        if (lDe == Local.Frigorifico && lPara != Local.Frigorifico && b != null && b.item != a.item
+            && !PodeIrPraGeladeira(b.item)) return false;
 
         int lim = Limite(lPara);
         int leva = Mathf.Min(lim, maxMover); // máximo que pode sair da origem
@@ -141,11 +154,29 @@ public static class Inventario
         return i >= 0 ? slots[i].qtd : 0;
     }
 
+    // Sementes "pré" (da fusão) que completaram o tempo no frigorífico viram a semente de verdade
+    public static void Amadurecer()
+    {
+        bool mudou = false;
+        foreach (var e in frigorifico)
+            if (e != null && e.Pronta && e.item && e.item.viraNoFrigorifico)
+            {
+                e.item = e.item.viraNoFrigorifico;
+                mudou = true;
+            }
+        if (mudou) Mudou?.Invoke();
+    }
+
     // Marca o que entrou/saiu do frigorífico (inicia ou zera o tempo) e avisa a UI
     static void Avisar()
     {
         foreach (var e in frigorifico)
-            if (e != null && !e.noFrigorifico) { e.noFrigorifico = true; e.inicio = Time.time; }
+            if (e != null && !e.noFrigorifico)
+            {
+                e.noFrigorifico = true;
+                e.inicio = Time.time;
+                e.duracao = e.item && e.item.viraNoFrigorifico ? TempoSementeFusao : TempoFrigorifico;
+            }
         foreach (var e in slots)
             if (e != null) e.noFrigorifico = false;
 

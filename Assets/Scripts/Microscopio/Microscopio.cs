@@ -3,37 +3,32 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 // Coloque na imagem do Microscópio (GMP_Scene_Center).
-// - Clicou no microscópio -> abre a Tela Microscópio 1.
-// - Arrastou uma planta do inventário e soltou em cima dele -> abre a Tela Microscópio 2,
-//   com a planta guardada em Microscopio.PlantaSelecionada (para a tela 2 usar).
+// - Clicou no microscópio -> abre a cena de Reconstrução.
+// - Arrastou um fóssil do inventário e soltou em cima dele -> abre a cena de Fusão,
+//   com o fóssil guardado em Microscopio.FossilSelecionado (para a cena usar).
 public class Microscopio : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
-    [SerializeField] string cenaMicroscopio1 = "TelaMicroscopio1";
-    [SerializeField] string cenaMicroscopio2 = "TelaMicroscopio2";
-    [Tooltip("Aceitar também sementes (não só plantas adultas colhidas)")]
-    [SerializeField] bool aceitarSementes = false;
+    [SerializeField] string cenaClique = "M1 (Reconstrucao)";
+    [SerializeField] string cenaFossil = "M2 (fusao)";
 
-    // Planta levada ao microscópio (a tela 2 lê daqui). Ela continua no inventário.
-    public static ItemData PlantaSelecionada { get; private set; }
+    // Fóssil levado ao microscópio (a cena de fusão lê daqui). Ele continua no inventário.
+    public static ItemData FossilSelecionado { get; private set; }
 
     public void OnPointerClick(PointerEventData ev)
     {
         if (ev.dragging) return;
-        PlantaSelecionada = null;
-        Abrir(cenaMicroscopio1);
+        FossilSelecionado = null;
+        Abrir(cenaClique);
     }
 
     public void OnDrop(PointerEventData ev)
     {
         if (!ev.pointerDrag || !ev.pointerDrag.TryGetComponent(out InventorySlot origem)) return;
         var item = origem.ItemAtual;
-        if (!item) return;
+        if (!item || !item.ehFossil) return; // só fóssil
 
-        bool planta = item.EhPlantaColhida || (!item.ehSemente && !item.ehVaso && item.origem);
-        if (!planta && !(aceitarSementes && item.ehSemente)) return; // vaso, etc.: ignora
-
-        PlantaSelecionada = item;
-        Abrir(cenaMicroscopio2);
+        FossilSelecionado = item;
+        Abrir(cenaFossil);
     }
 
     static void Abrir(string cena)
@@ -44,5 +39,5 @@ public class Microscopio : MonoBehaviour, IPointerClickHandler, IDropHandler
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    static void Resetar() => PlantaSelecionada = null;
+    static void Resetar() => FossilSelecionado = null;
 }

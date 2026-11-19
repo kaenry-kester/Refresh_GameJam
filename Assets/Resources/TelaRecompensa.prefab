@@ -666,9 +666,9 @@ MonoBehaviour:
   painel: {fileID: 4381040156995573476}
   iconeSemente: {fileID: 4933166046576122837}
   texto: {fileID: 7751410270193483744}
-  formato: "Expedi\xE7\xE3o conclu\xEDda!\nForam encontrados vest\xEDgios de uma
+  formato: "Expedi\xE7\xE3o conclu\xEDda!\nForam encontrados vest\xEDgios de um(a)
     {0}"
-  textoInventarioCheio: "Invent\xE1rio cheio! Libere um espa\xE7o para pegar a semente."
+  textoInventarioCheio: "Invent\xE1rio cheio! Libere um espa\xE7o para pegar a recompensa."
   botaoPegar: {fileID: 2790178862015185821}
   somConcluida: {fileID: 8300000, guid: 1f06ce90da657e54aae971125bab17a8, type: 3}
   volume: 1

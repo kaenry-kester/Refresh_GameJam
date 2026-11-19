@@ -13,6 +13,7 @@ public class ItemData : ScriptableObject
 
     [Header("Vaso (item que vira um vaso novo no jardim)")]
     public bool ehVaso;           // soltar este item num slot livre da GMP_Scene_Top cria um vaso
+    public bool ehFossil;         // recompensa de expedição (fica no inventário; pode ir ao microscópio)
     public GameObject prefabVaso; // o prefab do vaso que será criado
 
     // "Pacote" de crescimento: o que aparece em cima do vaso em cada fase.
@@ -99,6 +100,25 @@ public class ItemData : ScriptableObject
         item.origem = this;
         item.faseColhida = fase;
         return colhidosGerados[fase] = item;
+    }
+
+    // ---- Semente "pré" (vem da fusão) ----
+    // Não pode ser plantada. Dentro do frigorífico, quando o tempo acaba, vira a semente de verdade ("pós").
+    [System.NonSerialized] public ItemData viraNoFrigorifico;
+    [System.NonSerialized] ItemData preGerada;
+
+    public ItemData SementePre()
+    {
+        if (preGerada) return preGerada;
+        var item = CreateInstance<ItemData>();
+        item.name = item.nome = (string.IsNullOrEmpty(nome) ? name : nome.Trim()) + " (pré)";
+        item.icone = iconeFrigorificoPre ? iconeFrigorificoPre : icone;
+        item.iconeFrigorificoPre = item.icone;
+        item.iconeFrigorificoPos = iconeFrigorificoPos ? iconeFrigorificoPos : icone;
+        item.ehSemente = false; // ainda não dá para plantar
+        item.viraNoFrigorifico = this;
+        item.hideFlags = HideFlags.DontUnloadUnusedAsset;
+        return preGerada = item;
     }
 
     // Recortes já feitos (sprite original -> recortado), para não criar um novo toda vez

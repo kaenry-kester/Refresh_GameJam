@@ -16,7 +16,7 @@ public class PainelExpedicoes : MonoBehaviour
         public Button aba;                  // BotaoExpedicao1, 2, 3 ou 4
         public int custo = 500;
         public int duracaoDias = 3;
-        public ItemData recompensa;         // a semente que o jogador ganha
+        public ItemData recompensa;         // o item que o jogador ganha (semente, fóssil...)
     }
 
     [SerializeField] Expedicao[] expedicoes =

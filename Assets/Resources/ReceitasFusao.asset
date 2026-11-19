@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec987ade3d294ce697af162f38fc3764, type: 3}
+  m_Name: ReceitasFusao
+  m_EditorClassIdentifier: Assembly-CSharp::ReceitasFusao
+  receitas:
+  - plantaA: {fileID: 11400000, guid: ed811c7328d90d742ad017a4c599a02e, type: 2}
+    plantaB: {fileID: 11400000, guid: f742eccb18f280a46a7a29f3e3ce6ccd, type: 2}
+    resultado: {fileID: 11400000, guid: 76340cce1e9075544857bdfa2c06e086, type: 2}
+  - plantaA: {fileID: 11400000, guid: 9818a37eceea6c348a04793f065ac2ab, type: 2}
+    plantaB: {fileID: 11400000, guid: ed811c7328d90d742ad017a4c599a02e, type: 2}
+    resultado: {fileID: 11400000, guid: 509f0726f0f315b41a49d533e4490762, type: 2}
+  - plantaA: {fileID: 11400000, guid: 9818a37eceea6c348a04793f065ac2ab, type: 2}
+    plantaB: {fileID: 11400000, guid: f742eccb18f280a46a7a29f3e3ce6ccd, type: 2}
+    resultado: {fileID: 11400000, guid: 2238ee45ea9ff874a8142cc6815da71a, type: 2}

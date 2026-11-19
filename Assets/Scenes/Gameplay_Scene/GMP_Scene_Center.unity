@@ -613,6 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9fc6822af3394f825e81128f59b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  raioSlotVaso: 1.5
+  tempoMaxClique: 0.3
   local: 1
   icone: {fileID: 1817723243}
   qtd: {fileID: 0}
@@ -1263,6 +1265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9fc6822af3394f825e81128f59b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  raioSlotVaso: 1.5
+  tempoMaxClique: 0.3
   local: 1
   icone: {fileID: 2045040876}
   qtd: {fileID: 0}
@@ -1332,6 +1336,7 @@ GameObject:
   - component: {fileID: 718787530}
   - component: {fileID: 718787532}
   - component: {fileID: 718787533}
+  - component: {fileID: 718787534}
   m_Layer: 5
   m_Name: "Microsc\xF3pio"
   m_TagString: Untagged
@@ -1423,6 +1428,20 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.6769231, b: 0, a: 1}
   m_EffectDistance: {x: 1.5, y: 1.5}
   m_UseGraphicAlpha: 1
+--- !u!114 &718787534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718787528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d16bfe573a5caa4fbf8a97c06fd4cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Microscopio
+  cenaClique: M2 (fusao)
+  cenaFossil: M1 (Reconstrucao)
 --- !u!1 &901770586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,6 +1823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9fc6822af3394f825e81128f59b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  raioSlotVaso: 1.5
+  tempoMaxClique: 0.3
   local: 1
   icone: {fileID: 90511158}
   qtd: {fileID: 0}
@@ -2880,6 +2901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9fc6822af3394f825e81128f59b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  raioSlotVaso: 1.5
+  tempoMaxClique: 0.3
   local: 1
   icone: {fileID: 452123849}
   qtd: {fileID: 0}

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Tela "Expedição concluída": aparece em QUALQUER cena quando os dias da expedição terminam.
-// Mostra a semente ganha; o botão "Pegar" coloca ela no inventário e libera uma nova expedição.
+// Mostra a recompensa (semente, fóssil...); o botão "Pegar" coloca ela no inventário e libera uma nova expedição.
 // Monte num Canvas próprio e salve como prefab "TelaRecompensa" dentro de uma pasta Resources:
 // o jogo cria sozinho e mantém entre as cenas (igual ao PainelVaso).
 // Este script fica no objeto RAIZ (sempre ativo); "Painel" é o filho que aparece/some.
@@ -17,7 +17,7 @@ public class TelaRecompensa : MonoBehaviour
     [SerializeField] Image iconeSemente;
     [SerializeField] TMP_Text texto;
     [SerializeField] string formato = "Expedição concluída!\nVocê encontrou: {0}";
-    [SerializeField] string textoInventarioCheio = "Inventário cheio! Libere um espaço para pegar a semente.";
+    [SerializeField] string textoInventarioCheio = "Inventário cheio! Libere um espaço para pegar a recompensa.";
     [SerializeField] Button botaoPegar;
     [SerializeField] AudioClip somConcluida;
     [SerializeField, Range(0f, 1f)] float volume = 1f;
@@ -47,10 +47,18 @@ public class TelaRecompensa : MonoBehaviour
         if (instancia == this) instancia = null;
     }
 
+    [Tooltip("Espera (segundos) depois que a expedição termina, para não cruzar com a tela de fim de dia")]
+    [SerializeField] float atraso = 8f;
+    float concluidaEm = -1f; // quando percebeu que terminou (-1 = ainda não)
+
     void Update()
     {
-        // A expedição terminou e a tela ainda não está aberta: mostra
-        if (painel && !painel.activeSelf && EstadoExpedicao.Concluida) Mostrar();
+        if (!painel || painel.activeSelf) return;
+        if (!EstadoExpedicao.Concluida) { concluidaEm = -1f; return; }
+
+        // A expedição terminou: espera o atraso e então mostra a tela
+        if (concluidaEm < 0f) concluidaEm = Time.unscaledTime;
+        if (Time.unscaledTime - concluidaEm >= atraso) Mostrar();
     }
 
     void Mostrar()
@@ -81,8 +89,8 @@ public class TelaRecompensa : MonoBehaviour
     {
         var item = EstadoExpedicao.Recompensa;
         if (!item)
-            Debug.LogWarning("TelaRecompensa: esta expedição está sem semente no campo 'Recompensa' do PainelExpedicoes.");
-        else if (!Inventario.Adicionar(item)) // a semente vai direto para o inventário
+            Debug.LogWarning("TelaRecompensa: esta expedição está sem item no campo 'Recompensa' do PainelExpedicoes.");
+        else if (!Inventario.Adicionar(item)) // a recompensa vai direto para o inventário
         {
             if (texto) texto.text = textoInventarioCheio; // a tela fica aberta até ter espaço
             return;
