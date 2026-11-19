@@ -2,11 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Slot onde um vaso encaixa. Coloque na GMP_Scene_Top com Vaso = 1..6 (um número diferente em cada).
+// Na Top ele fica onde você posicionou no editor; na Center usa as posições da prateleira abaixo.
+// Se tiver SpriteRenderer (desenho do slot), ele só aparece na Top.
 public class Vaso_Holder : MonoBehaviour
 {
     public int Vaso;
 
     static Dictionary<int, Vaso_Holder> instancias = new Dictionary<int, Vaso_Holder>();
+
+    Vector3 posTop; // posição colocada no editor na GMP_Scene_Top
 
     void Awake()
     {
@@ -17,6 +22,7 @@ public class Vaso_Holder : MonoBehaviour
         }
 
         instancias[Vaso] = this;
+        posTop = transform.position;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += AoCarregarCena;
     }
@@ -29,34 +35,16 @@ public class Vaso_Holder : MonoBehaviour
             instancias.Remove(Vaso);
     }
 
-    // AoCarregarCena continua igual
     void AoCarregarCena(Scene cena, LoadSceneMode modo)
     {
+        // Desenho do slot só aparece na Top
+        if (TryGetComponent(out SpriteRenderer sr))
+            sr.enabled = cena.name == "GMP_Scene_Top";
+
         if (cena.name == "GMP_Scene_Top")
         {
             gameObject.SetActive(true);
-            switch (Vaso)
-            {
-                case 1:
-                    transform.position = new Vector3(-4f, 2f, 0f);
-                    break;
-                case 2:
-                    transform.position = new Vector3(0f, 2f, 0f);
-                    break;
-                case 3:
-                    transform.position = new Vector3(4f, 2f, 0f);
-                    break;
-                case 4:
-                    transform.position = new Vector3(-4f, 0f, 0f);
-                    break;
-                case 5:
-                    transform.position = new Vector3(0f, 0f, 0f);
-                    break;
-                case 6:
-                    transform.position = new Vector3(4f, 0f, 0f);
-                    break;
-            }
-
+            transform.position = posTop;
         }
         else if(cena.name == "GMP_Scene_Center")
         {

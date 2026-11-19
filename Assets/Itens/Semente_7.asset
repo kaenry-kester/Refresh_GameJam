@@ -17,4 +17,7 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: -4611803420906572789, guid: 4a30f2592ad68634ab1ac3f13be6ee90, type: 3}
   iconeFrigorificoPos: {fileID: 9089882590881760337, guid: 401f5eafab6bfcd4d9ff3e358439fdab, type: 3}
   ehSemente: 1
-  spritePlantado: {fileID: 0}
+  spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
+  spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
+  spriteCrescendo: {fileID: 21300000, guid: 9fdca8067900606459288f2ba14d9dbd, type: 3}
+  spriteFinal: {fileID: 21300000, guid: f60bd38781e49964ca0de935c3a6b7e1, type: 3}

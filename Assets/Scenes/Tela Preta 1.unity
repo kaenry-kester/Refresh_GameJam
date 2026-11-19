@@ -358,6 +358,7 @@ MonoBehaviour:
   velocidade3: 1
   velocidade4: 1
   nomeCenaDestino: GMP_Scene_Center
+  tempoAteTrocar: 0
 --- !u!82 &410380557
 AudioSource:
   m_ObjectHideFlags: 0

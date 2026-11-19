@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 59059356}
   - component: {fileID: 59059359}
   - component: {fileID: 59059360}
+  - component: {fileID: 59059361}
   m_Layer: 5
   m_Name: Upgrades
   m_TagString: Untagged
@@ -296,6 +297,18 @@ MonoBehaviour:
   volumeTroca: 0.5
   velocidadeHover: 1
   velocidadeTroca: 1
+--- !u!114 &59059361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59059353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
 --- !u!1 &107584758
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +323,7 @@ GameObject:
   - component: {fileID: 107584761}
   - component: {fileID: 107584764}
   - component: {fileID: 107584765}
+  - component: {fileID: 107584766}
   m_Layer: 5
   m_Name: "Expedi\xE7\xE3o"
   m_TagString: Untagged
@@ -473,6 +487,18 @@ MonoBehaviour:
   volumeTroca: 0.5
   velocidadeHover: 1
   velocidadeTroca: 1
+--- !u!114 &107584766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107584758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
 --- !u!1 &330413639
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +513,7 @@ GameObject:
   - component: {fileID: 330413642}
   - component: {fileID: 330413645}
   - component: {fileID: 330413647}
+  - component: {fileID: 330413648}
   m_Layer: 5
   m_Name: Loja
   m_TagString: Untagged
@@ -650,6 +677,18 @@ MonoBehaviour:
   volumeTroca: 0.5
   velocidadeHover: 1
   velocidadeTroca: 1
+--- !u!114 &330413648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330413639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
 --- !u!1 &737140029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1641,7 @@ GameObject:
   - component: {fileID: 1583065283}
   - component: {fileID: 1583065287}
   - component: {fileID: 1583065286}
+  - component: {fileID: 1583065288}
   m_Layer: 5
   m_Name: "Doa\xE7\xF5es"
   m_TagString: Untagged
@@ -1765,6 +1805,18 @@ MonoBehaviour:
   volumeTroca: 0.5
   velocidadeHover: 1
   velocidadeTroca: 1
+--- !u!114 &1583065288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583065280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25010fad5d617941b678c686fd4b4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IMG_Hover_AumentarTamanho
 --- !u!1 &1731663820
 GameObject:
   m_ObjectHideFlags: 0

@@ -190,17 +190,14 @@ public class InventorySlot : MonoBehaviour,
         var cam = Camera.main;
         if (!cam) return;
 
+        // Basta soltar perto do vaso (raioPlantio de cada vaso)
         Vector2 mundo = cam.ScreenToWorldPoint(telaPos);
-        foreach (var col in Physics2D.OverlapPointAll(mundo))
-        {
-            if (col.TryGetComponent(out Vaso vaso))
-            {
-                var item = Inventario.De(local)[Indice].item;
-                if (vaso.Plantar(item))
-                    Inventario.RemoverDoSlot(Indice, 1, local);
-                return;
-            }
-        }
+        var vaso = Vaso.MaisPerto(mundo);
+        if (vaso == null) return;
+
+        var item = Inventario.De(local)[Indice].item;
+        if (vaso.Plantar(item))
+            Inventario.RemoverDoSlot(Indice, 1, local);
     }
 
     void Seguir(PointerEventData ev)
