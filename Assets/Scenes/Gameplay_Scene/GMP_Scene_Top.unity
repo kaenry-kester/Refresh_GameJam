@@ -3267,6 +3267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: regador
       objectReference: {fileID: 0}
+    - target: {fileID: 5275344231158361364, guid: 1e835f3be29f5e248a6c9130ab2b34e4, type: 3}
+      propertyPath: anguloRegando
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
