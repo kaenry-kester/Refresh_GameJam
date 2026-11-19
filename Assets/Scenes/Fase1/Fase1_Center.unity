@@ -406,7 +406,7 @@ MonoBehaviour:
   somHover: {fileID: 0}
   somTroca: {fileID: 8300000, guid: 55491a7274ee191488cdbaa414dc6e6d, type: 3}
   volumeHover: 0.5
-  volumeTroca: 0.5
+  volumeTroca: 0.1
   velocidadeHover: 1
   velocidadeTroca: 1
 --- !u!114 &486009234
@@ -928,6 +928,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3791615380179010615, guid: 7e35216a669b50845b2b3e23dc44b2a7, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125785531717029653, guid: 7e35216a669b50845b2b3e23dc44b2a7, type: 3}
+      propertyPath: volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 14585238}
   - component: {fileID: 14585237}
   - component: {fileID: 14585236}
+  - component: {fileID: 14585239}
   m_Layer: 5
   m_Name: Botao_Comecar
   m_TagString: Untagged
@@ -334,6 +335,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 14585239}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &14585237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +385,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14585233}
   m_CullTransparentMesh: 1
+--- !u!114 &14585239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14585233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: 9bb05820fda4dce45afd5b0226017a33, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &128032327
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +499,7 @@ GameObject:
   - component: {fileID: 630942520}
   - component: {fileID: 630942519}
   - component: {fileID: 630942518}
+  - component: {fileID: 630942521}
   m_Layer: 5
   m_Name: Botao_Proximo
   m_TagString: Untagged
@@ -551,6 +583,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 630942521}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &630942519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,6 +633,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630942516}
   m_CullTransparentMesh: 1
+--- !u!114 &630942521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630942516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: 9bb05820fda4dce45afd5b0226017a33, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &726187432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1367,7 @@ MonoBehaviour:
   somHover: {fileID: 0}
   somTroca: {fileID: 8300000, guid: 55491a7274ee191488cdbaa414dc6e6d, type: 3}
   volumeHover: 0.5
-  volumeTroca: 0.5
+  volumeTroca: 0.1
   velocidadeHover: 1
   velocidadeTroca: 1
 --- !u!1001 &1281370477
