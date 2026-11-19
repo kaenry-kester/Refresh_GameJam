@@ -345,6 +345,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Botao_Voltar
       objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1617631174}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TocarSom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SomTrocaCena, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9167040656470297785, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -428,7 +456,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4690221044513404006, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1617631174}
   m_SourcePrefab: {fileID: 100100000, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
 --- !u!224 &287608576 stripped
 RectTransform:
@@ -526,6 +557,7 @@ GameObject:
   - component: {fileID: 846875669}
   - component: {fileID: 846875668}
   - component: {fileID: 846875667}
+  - component: {fileID: 846875670}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -595,7 +627,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 846875668}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 846875670}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &846875668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +678,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846875665}
   m_CullTransparentMesh: 1
+--- !u!114 &846875670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846875665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: efbb2a5704d97b44e8c943200b2c0d16, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.25
+  velocidadeHover: 1
+  velocidadeTroca: 1
+--- !u!1 &1617631172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4690221044513404006, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+  m_PrefabInstance: {fileID: 287608575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1617631174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617631172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &1843767161
 GameObject:
   m_ObjectHideFlags: 0

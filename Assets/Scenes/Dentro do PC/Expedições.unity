@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 8506435}
   - component: {fileID: 8506434}
   - component: {fileID: 8506433}
+  - component: {fileID: 8506437}
   - component: {fileID: 8506436}
   m_Layer: 5
   m_Name: BotaoExpedicao4
@@ -201,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8506434}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8506437}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8506434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +277,29 @@ MonoBehaviour:
   - {fileID: 1205980748}
   - {fileID: 860019157}
   - {fileID: 2068996738}
+--- !u!114 &8506437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
+--- !u!1 &62004378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4690221044513404006, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+  m_PrefabInstance: {fileID: 803723687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &82324953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1244,7 @@ GameObject:
   - component: {fileID: 713336962}
   - component: {fileID: 713336961}
   - component: {fileID: 713336960}
+  - component: {fileID: 713336964}
   - component: {fileID: 713336963}
   m_Layer: 5
   m_Name: BotaoExpedicao3
@@ -1278,7 +1315,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 713336961}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 713336964}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &713336961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,6 +1390,24 @@ MonoBehaviour:
   - {fileID: 1710236531}
   - {fileID: 1423095310}
   - {fileID: 2047535568}
+--- !u!114 &713336964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713336958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &744751766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,6 +1499,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Botao_Voltar
       objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 803723690}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TocarSom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SomTrocaCena, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324218151858361, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9167040656470297785, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1515,13 +1610,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4690221044513404006, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 803723690}
   m_SourcePrefab: {fileID: 100100000, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
 --- !u!224 &803723688 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9167040656470297785, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}
   m_PrefabInstance: {fileID: 803723687}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &803723690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62004378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &858195569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1650,7 @@ GameObject:
   - component: {fileID: 858195573}
   - component: {fileID: 858195572}
   - component: {fileID: 858195571}
+  - component: {fileID: 858195575}
   - component: {fileID: 858195574}
   m_Layer: 5
   m_Name: BotaoExpedicao1
@@ -1604,7 +1721,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 858195572}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 858195575}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &858195572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,6 +1796,24 @@ MonoBehaviour:
   - {fileID: 465575580}
   - {fileID: 744751766}
   - {fileID: 2032403581}
+--- !u!114 &858195575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858195569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &860019157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,6 +3112,7 @@ GameObject:
   - component: {fileID: 1536612673}
   - component: {fileID: 1536612672}
   - component: {fileID: 1536612671}
+  - component: {fileID: 1536612674}
   m_Layer: 0
   m_Name: Button (Legacy) (4)
   m_TagString: Untagged
@@ -3034,7 +3182,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1536612672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1536612674}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1536612672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3073,6 +3233,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536612669}
   m_CullTransparentMesh: 1
+--- !u!114 &1536612674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536612669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: d9f49493f782c024493ce870b3b3b176, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.3
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &1586852783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,6 +3263,7 @@ GameObject:
   - component: {fileID: 1586852787}
   - component: {fileID: 1586852786}
   - component: {fileID: 1586852785}
+  - component: {fileID: 1586852789}
   - component: {fileID: 1586852788}
   m_Layer: 5
   m_Name: BotaoExpedicao2
@@ -3155,7 +3334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1586852786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1586852789}
+        m_TargetAssemblyTypeName: SomTrocaCena, Assembly-CSharp
+        m_MethodName: TocarSom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1586852786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3218,6 +3409,24 @@ MonoBehaviour:
   - {fileID: 82324953}
   - {fileID: 691315393}
   - {fileID: 1272762930}
+--- !u!114 &1586852789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586852783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3f0eaa34fb90e439ec51d0acf0e048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SomTrocaCena
+  somHover: {fileID: 0}
+  somTroca: {fileID: 8300000, guid: f45f2beb6808d3941826ac822d1705ac, type: 3}
+  volumeHover: 0.5
+  volumeTroca: 0.5
+  velocidadeHover: 1
+  velocidadeTroca: 1
 --- !u!1 &1710236531
 GameObject:
   m_ObjectHideFlags: 0
