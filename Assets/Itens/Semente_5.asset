@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: -7575719165886326049, guid: e011c108e5f878c4481591bc599c32e2, type: 3}
   iconeFrigorificoPos: {fileID: 6656859138449206107, guid: 57a4a7b7c70911d48af4f4f7ac0d2678, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 3a9df51fd2b6bfd4091a6d4b428ed17e, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 50
   co2Necessario: 50
   luzNecessaria: 75
+  fotoPainel: {fileID: 2331605177684862656, guid: 873fb4aa6bdfedb4ca7507e5f927546e, type: 3}
   descricao: "Foi extinta pela ocupa\xE7\xE3o das restingas para constru\xE7\xE3o
     de casas e hot\xE9is de praia. A retirada de plantas para jardins e a polui\xE7\xE3o
     completaram o desaparecimento."

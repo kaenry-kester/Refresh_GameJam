@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: 8845015577212307085, guid: 9e5c294919e547a45afe574026519f96, type: 3}
   iconeFrigorificoPos: {fileID: 8688529562779333375, guid: 4bf73df1f9e742c41b1367f935472bd7, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 68d77c58663af5843a98cf8c865c0dfb, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 50
   co2Necessario: 75
   luzNecessaria: 75
+  fotoPainel: {fileID: -1432541815147055543, guid: 68ae11c8b2bfa734090d3f98ebe59db5, type: 3}
   descricao: "Explorado desde 1500 por sua madeira vermelha, usada para tingir tecidos,
     foi cortado at\xE9 quase sumir. Depois, a destrui\xE7\xE3o da Mata Atl\xE2ntica
     e o uso da madeira em arcos de violino acabaram com as \xFAltimas \xE1rvores."

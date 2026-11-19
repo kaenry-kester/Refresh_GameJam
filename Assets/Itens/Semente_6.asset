@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: -1081622738530270715, guid: f9006ead58a2ef0478dcd93ca5e8fbe4, type: 3}
   iconeFrigorificoPos: {fileID: -6618596215858203136, guid: f37edc525bfa50d4eaa196d7784e2e1d, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: d5e2f084a5fc101458253e93ce6aa550, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 25
   co2Necessario: 25
   luzNecessaria: 100
+  fotoPainel: {fileID: -8994827366562074751, guid: bf4ffafda2c0ad44db007a5781f5af38, type: 3}
   descricao: Suas flores secas eram colhidas aos montes para enfeites e artesanato
     vendidos no Brasil e no exterior. A coleta antes de as sementes amadurecerem
     e as queimadas impediram que ela se renovasse.

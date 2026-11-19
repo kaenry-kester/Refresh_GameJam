@@ -36,12 +36,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Dentro do PC/Upgrade.unity
     guid: 383c274ba32359d4683d576e3fcd3a45
   - enabled: 1
-    path: "Assets/Scenes/Microsc\xF3pio/Tela de Reconstru\xE7\xE3o.unity"
-    guid: fc1ecee9f8102ea4aa4eedfa0bf5e1b5
-  - enabled: 1
-    path: "Assets/Scenes/Microsc\xF3pio/Tela de Fus\xE3o.unity"
-    guid: 0625f1ceafdf70a4ba5a238bde942dee
-  - enabled: 1
     path: Assets/Scenes/Tela Preta.unity
     guid: 41cb3f368872d8d4e83f4d1a23a6cbf2
   - enabled: 1
@@ -59,6 +53,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tela Preta 1.unity
     guid: 1c517ebbf8e0f0049b6072c9820140dd
+  - enabled: 1
+    path: Assets/Scenes/Microscopio/M2 (fusao).unity
+    guid: 8d4eed157d257fc4ba5e67d5adfc38b6
+  - enabled: 1
+    path: Assets/Scenes/Microscopio/M1 (Reconstrucao).unity
+    guid: abd5f676febf67f4d95c55011ca21191
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

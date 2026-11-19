@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: -149108574998840961, guid: 3128abbbbc45fcb40b53ac9809efff75, type: 3}
   iconeFrigorificoPos: {fileID: -4676619508392302570, guid: 147499d1a5f04554c9ff922e24ad5afb, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 1bc2511bceb8faf4cac988ace7324b2d, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 50
   co2Necessario: 50
   luzNecessaria: 50
+  fotoPainel: {fileID: -1489943783679257544, guid: ec644b24c479a224a9a47295df342b8a, type: 3}
   descricao: "Desapareceu com o desmatamento das matas para planta\xE7\xF5es de cacau
     e pastos. Por ser rara e bonita, foi arrancada das \xE1rvores por coletores at\xE9
     n\xE3o sobrar nenhuma."

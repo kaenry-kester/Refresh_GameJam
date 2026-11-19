@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: 7810020213435929108, guid: b0257122834ce18438a32731d08482c8, type: 3}
   iconeFrigorificoPos: {fileID: -697505055404604986, guid: 6f7bc6525fff6004ba95217e066aa8be, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: e937bed247010284daba8be6773c5203, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 25
   co2Necessario: 50
   luzNecessaria: 50
+  fotoPainel: {fileID: 9199828177834875730, guid: ab440631784d4ca4380706a305ddfedd, type: 3}
   descricao: "Foi arrancada das rochas por coletores encantados com suas folhas prateadas.
     A extra\xE7\xE3o de pedra nas encostas destruiu os \xFAltimos lugares onde crescia."
   habitat: "Nascia em fendas de pared\xF5es rochosos \xEDngremes do Paran\xE1 e de

@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: 378153208203878471, guid: 62de2b0985729744299e28137fa8d027, type: 3}
   iconeFrigorificoPos: {fileID: -2907215136980083832, guid: c51a4bf1069d0a14fb9880d7f9252c8a, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 288c69c54fc1dff4480dc1087de894ab, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 50
   co2Necessario: 50
   luzNecessaria: 75
+  fotoPainel: {fileID: 764528985301154709, guid: f2044accb5e8ede478e17dfdcfe86e9e, type: 3}
   descricao: "Sumiu quando as matas e restingas da Bahia viraram cidades, estradas
     e loteamentos. A procura por suas flores manchadas levou \xE0 coleta excessiva."
   habitat: "Nascia sobre galhos de \xE1rvores em matas secas e restingas do litoral

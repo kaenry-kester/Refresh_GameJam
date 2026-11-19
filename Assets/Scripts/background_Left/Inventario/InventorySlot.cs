@@ -131,6 +131,9 @@ public class InventorySlot : MonoBehaviour,
         if (qtd) qtd.text = "";
     }
 
+    // Item que está neste slot (null = vazio). Usado por quem recebe um item arrastado (doação, microscópio...)
+    public ItemData ItemAtual => Entrada != null ? Entrada.item : null;
+
     // Usado pelo ímã do ColetarItem
     public RectTransform IconeRect => icone.rectTransform;
     public Inventario.Local Local => local;

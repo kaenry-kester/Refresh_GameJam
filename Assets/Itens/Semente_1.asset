@@ -17,6 +17,8 @@ MonoBehaviour:
   iconeFrigorificoPre: {fileID: 3550800426882604243, guid: b87ac8dfda5e17a47930e31735f756c8, type: 3}
   iconeFrigorificoPos: {fileID: -2462968286852685367, guid: 4927aa89bba55b44796bfa249c0a2983, type: 3}
   ehSemente: 1
+  ehVaso: 0
+  prefabVaso: {fileID: 0}
   spriteSemente: {fileID: 21300000, guid: a10e4b4f21fdd74439e361151b170e50, type: 3}
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 128956ebb4fda06498e44251f3ac5eda, type: 3}
@@ -25,6 +27,7 @@ MonoBehaviour:
   aguaNecessaria: 75
   co2Necessario: 50
   luzNecessaria: 75
+  fotoPainel: {fileID: 6494089218475877570, guid: 73e0cd1951f09bb488d6a97fb508677b, type: 3}
   descricao: "Desapareceu quando os pared\xF5es onde vivia foram tomados por trilhas,
     ocupa\xE7\xE3o humana e inc\xEAndios. A coleta ilegal de bulbos para colecionadores
     acabou com as \xFAltimas popula\xE7\xF5es."
