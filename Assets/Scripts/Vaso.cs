@@ -29,6 +29,23 @@ public class Vaso : MonoBehaviour
              "Ex.: precisa 25 -> certo de 25 a 50. Precisa 50 -> certo de 50 a 75.")]
     [SerializeField] float toleranciaAcima = 25f;
 
+    [Header("Luz (vaso de upgrade)")]
+    [Tooltip("Marque no prefab do vaso com luz: libera os botões + / - de Luz no painel")]
+    [SerializeField] bool controleLuz;
+    [Tooltip("Quanto cada clique em + / - muda a luz (em %)")]
+    [SerializeField] float passoLuz = 25f;
+
+    public bool ControleLuz => controleLuz;
+    public float Luz { get; private set; } // 0 a 100%, regulada pelos botões do painel
+    public bool LuzOk => controleLuz && Semente != null && Mathf.Abs(Luz - Semente.luzNecessaria) < 0.01f;
+
+    // + (direcao 1) ou - (direcao -1): sobe/desce um degrau (0, 25, 50, 75, 100)
+    public void AjustarLuz(int direcao)
+    {
+        if (!controleLuz || Semente == null) return;
+        Luz = Mathf.Clamp(Luz + passoLuz * Mathf.Sign(direcao), 0f, 100f);
+    }
+
     public ItemData Semente { get; private set; }
     public int Fase { get; private set; }   // 0 = Semente, 1 = Broto, 2 = Crescendo, 3 = Final
     public float Agua { get; private set; } // 0 a 100%
@@ -43,8 +60,9 @@ public class Vaso : MonoBehaviour
     public bool ComSede => Semente != null && !AguaSuficiente && !Pronta;
     public bool Pronta => Semente != null && Fase >= ItemData.FaseFinal; // fase final
 
-    // Requisitos cumpridos para o bônus de venda. CO2 e Luz ainda não estão desbloqueados.
-    public int RequisitosCumpridos => AguaIdeal ? 1 : 0;
+    // Requisitos cumpridos para o bônus de venda (+50% cada).
+    // Água em todo vaso; Luz só no vaso com controle de luz. CO2 ainda não está desbloqueado.
+    public int RequisitosCumpridos => (AguaIdeal ? 1 : 0) + (LuzOk ? 1 : 0);
     public int PrecoVenda => Semente ? Semente.PrecoVenda(RequisitosCumpridos, Fase) : 0;
 
     bool cresceuHoje; // a planta só avança uma fase por dia
@@ -209,6 +227,7 @@ public class Vaso : MonoBehaviour
         Semente = null;
         Fase = 0;
         Agua = 0f;
+        Luz = 0f;
         AtualizarPlanta();
         AtualizarVisual(); // cor normal, sem ícones
     }
@@ -451,6 +470,7 @@ public class Vaso : MonoBehaviour
         Semente = item;
         Fase = 0;
         Agua = 0f;
+        Luz = 0f; // a luz começa no 0% e o jogador ajusta pelo painel
         cresceuHoje = true; // no dia do plantio ela não cresce, só recebe água
         AtualizarPlanta();
         AtualizarVisual();  // começa sem água: aparece a sede

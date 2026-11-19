@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45efbe3a796b9a84ca7c896fb6acf741, type: 3}
+  m_Name: Vaso_Luz_Item
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  nome: Vazo com luz
+  icone: {fileID: 4350280835496692523, guid: faf338d7113c25b488b081b7c9652570, type: 3}
+  iconeFrigorificoPre: {fileID: 0}
+  iconeFrigorificoPos: {fileID: 0}
+  ehSemente: 0
+  ehVaso: 1
+  prefabVaso: {fileID: 3670392081757111774, guid: cfaa9cc3fcb9bbe48a330fa820b1f0c4, type: 3}
+  spriteSemente: {fileID: 0}
+  spriteBroto: {fileID: 0}
+  spriteCrescendo: {fileID: 0}
+  spriteFinal: {fileID: 0}
+  precoBase: 100
+  aguaNecessaria: 50
+  co2Necessario: 50
+  luzNecessaria: 50
+  fotoPainel: {fileID: 0}
+  descricao: 
+  habitat: 
+  itemColhido: {fileID: 0}

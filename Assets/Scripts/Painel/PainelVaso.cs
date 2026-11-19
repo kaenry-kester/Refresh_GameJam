@@ -72,6 +72,9 @@ public class PainelVaso : MonoBehaviour
     [SerializeField] Button botaoColetar;
     [Tooltip("Botões ainda bloqueados (ex.: ButtonCO2, ButtonCO2-, ButtonLUZ, ButtonLUZ-)")]
     [SerializeField] Button[] botoesBloqueados;
+    [Tooltip("Luz + e - (ButtonLUZ / ButtonLUZ-): só funcionam no vaso com controle de luz")]
+    [SerializeField] Button botaoLuzMais;
+    [SerializeField] Button botaoLuzMenos;
 
     [Header("Imagens")]
     [SerializeField] Image imagemVaso;   // vaso grande (lado direito)
@@ -89,6 +92,7 @@ public class PainelVaso : MonoBehaviour
     Layout layoutVaso, layoutPlanta;
     Vector2 basePlanta;
     float nivelMostrado; // água que a barra/medidor mostram agora (anima até a água real)
+    float luzMostrada;   // luz que a barra/medidor de luz mostram agora
 
     static Layout Guardar(Image img)
     {
@@ -137,6 +141,8 @@ public class PainelVaso : MonoBehaviour
         if (botaoFechar) botaoFechar.onClick.AddListener(Fechar);
         if (botaoVender) botaoVender.onClick.AddListener(Vender);
         if (botaoColetar) botaoColetar.onClick.AddListener(Coletar);
+        if (botaoLuzMais) botaoLuzMais.onClick.AddListener(() => { if (VasoAtual) VasoAtual.AjustarLuz(+1); });
+        if (botaoLuzMenos) botaoLuzMenos.onClick.AddListener(() => { if (VasoAtual) VasoAtual.AjustarLuz(-1); });
 
         // CO2 e Luz ainda não podem ser ajustados
         if (botoesBloqueados != null)
@@ -215,11 +221,28 @@ public class PainelVaso : MonoBehaviour
         Escrever(textoDescricao, p.descricao);
         Escrever(textoHabitat, p.habitat);
 
-        // CO2 e Luz ainda não estão desbloqueados: barras desligadas e medidores parados no 0%
+        // CO2 ainda não está desbloqueado: barra desligada e medidor parado no 0%
         if (barraCO2) barraCO2.gameObject.SetActive(false);
-        if (barraLuz) barraLuz.gameObject.SetActive(false);
         Marcar(marcaCO2, xMedidorCO2, 0f);
-        Marcar(marcaLuz, xMedidorLuz, 0f);
+
+        // Luz: só no vaso com controle de luz (nos outros, barra desligada e medidor no 0%)
+        bool temLuz = TemLuz;
+        if (barraLuz) barraLuz.gameObject.SetActive(temLuz);
+        luzMostrada = temLuz ? VasoAtual.Luz : 0f;
+        MostrarLuz();
+    }
+
+    bool TemLuz => !ModoItem && VasoAtual && VasoAtual.ControleLuz;
+
+    // Medidor de luz no nível mostrado e barra até ele: verde quando bate com o que a planta precisa
+    void MostrarLuz()
+    {
+        Marcar(marcaLuz, xMedidorLuz, luzMostrada);
+        if (!barraLuz || !TemLuz) return;
+
+        barraLuz.fillAmount = Preenchimento(barraLuz, marcaLuz, xMedidorLuz, luzMostrada);
+        bool certa = Mathf.Abs(luzMostrada - VasoAtual.Semente.luzNecessaria) < 0.01f;
+        barraLuz.color = certa ? corCorreta : corAgua;
     }
 
     public void Fechar()
@@ -250,8 +273,10 @@ public class PainelVaso : MonoBehaviour
             if (!VasoAtual || !VasoAtual.Semente) { Fechar(); return; } // vaso esvaziou
             // Barra e medidor sobem/descem juntos, suave, até a água atual
             nivelMostrado = Mathf.MoveTowards(nivelMostrado, VasoAtual.Agua, velocidadeNivel * Time.deltaTime);
+            if (TemLuz) luzMostrada = Mathf.MoveTowards(luzMostrada, VasoAtual.Luz, velocidadeNivel * Time.deltaTime);
         }
         MostrarAgua();
+        MostrarLuz();
         AtualizarDinamico();
     }
 
@@ -292,6 +317,15 @@ public class PainelVaso : MonoBehaviour
         // Manter na coleção só com a planta pronta (versão final vai para o inventário).
         if (botaoVender) botaoVender.interactable = true;
         if (botaoColetar) botaoColetar.interactable = v.Pronta;
+        AtualizarBotoesLuz();
+    }
+
+    // + / - de Luz só funcionam no vaso com controle de luz (e não passam de 0% / 100%)
+    void AtualizarBotoesLuz()
+    {
+        bool tem = TemLuz;
+        if (botaoLuzMais) botaoLuzMais.interactable = tem && VasoAtual.Luz < 100f;
+        if (botaoLuzMenos) botaoLuzMenos.interactable = tem && VasoAtual.Luz > 0f;
     }
 
     // Planta adulta do inventário: mesma tela, sem regar. Já está na coleção (Manter desativado).
@@ -309,6 +343,7 @@ public class PainelVaso : MonoBehaviour
         Escrever(textoVender, string.Format(formatoVender, PrecoItem));
         if (botaoVender) botaoVender.interactable = true;
         if (botaoColetar) botaoColetar.interactable = false;
+        AtualizarBotoesLuz();
     }
 
     // Planta do inventário vende pelo preço da adulta, sem bônus (fora do vaso não há água/CO2/luz)

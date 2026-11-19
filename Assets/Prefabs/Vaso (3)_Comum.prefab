@@ -81,15 +81,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3167880389213319011, guid: a4f994a70fab66e4fbc939a9b77313a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4f994a70fab66e4fbc939a9b77313a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.24, y: 8.87}
+  m_Size: {x: 9.01, y: 8.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &5394501629373362838
 GameObject:
@@ -307,6 +307,8 @@ MonoBehaviour:
   delayEncher: 1
   passoAgua: 25
   toleranciaAcima: 25
+  controleLuz: 0
+  passoLuz: 25
 --- !u!58 &539770724968205654
 CircleCollider2D:
   m_ObjectHideFlags: 0

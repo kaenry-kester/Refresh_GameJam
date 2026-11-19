@@ -2808,6 +2808,8 @@ MonoBehaviour:
   - {fileID: 5239198728644489842}
   - {fileID: 5707168533483816140}
   - {fileID: 6818399352856522929}
+  botaoLuzMais: {fileID: 5707168533483816140}
+  botaoLuzMenos: {fileID: 6818399352856522929}
   imagemVaso: {fileID: 3377360744617393938}
   imagemPlanta: {fileID: 6344557632454332510}
   fotoPlanta: {fileID: 2491036823781669091}

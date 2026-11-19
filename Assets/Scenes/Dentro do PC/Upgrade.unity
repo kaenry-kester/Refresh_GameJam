@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 846875668}
   - component: {fileID: 846875667}
   - component: {fileID: 846875670}
+  - component: {fileID: 846875671}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -640,6 +641,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 846875671}
+        m_TargetAssemblyTypeName: ComprarVaso, Assembly-CSharp
+        m_MethodName: Comprar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &846875668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +709,26 @@ MonoBehaviour:
   volumeTroca: 0.25
   velocidadeHover: 1
   velocidadeTroca: 1
+--- !u!114 &846875671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846875665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5865758ee6669b04a9b40bf147652312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComprarVaso
+  preco: 500
+  itemComprado: {fileID: 11400000, guid: cd237ad6865170448a4ef42d861c0f21, type: 2}
+  somCompra: {fileID: 8300000, guid: efbb2a5704d97b44e8c943200b2c0d16, type: 3}
+  volume: 1
+  aviso: {fileID: 0}
+  textoComprado: "Comprado! A caixa chegar\xE1 na porta."
+  textoSemDinheiro: Dinheiro insuficiente
+  fecharAoComprar: {fileID: 0}
 --- !u!1 &1617631172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4690221044513404006, guid: e9dac35ca59add549b3ca586fb14de56, type: 3}

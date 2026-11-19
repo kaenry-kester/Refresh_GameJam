@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class CaixaVaso : MonoBehaviour, IPointerClickHandler
 {
     [HideInInspector] public EntregaCaixas dono;
+    [HideInInspector] public ItemData item; // o que vem dentro (vaso comum, vaso com luz...)
 
     public void OnPointerClick(PointerEventData ev)
     {

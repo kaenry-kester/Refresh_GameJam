@@ -5,7 +5,7 @@ public class Dinheiro : MonoBehaviour
 {
 
     [SerializeField] private TMP_Text TextoQuantia;
-    public const int DinheiroInicial = 100; // dinheiro com que o jogo começa
+    public const int DinheiroInicial = 1000; // dinheiro com que o jogo começa
     public static int QuantiaAtual = DinheiroInicial; // static: o valor sobrevive à troca de cenas
 
     // Começa com o dinheiro inicial a cada Play, mesmo sem domain reload.
