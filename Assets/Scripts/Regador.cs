@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 // Regador que pode ser arrastado pela cena. Ao soltar, volta para o lugar de origem.
-// Soltou perto de um vaso com sede -> rega (a planta avança uma fase) e toca o som.
+// Segurando em cima de uma planta com sede: toca o som de água e, depois de "Tempo Para Regar"
+// segundos, ela é regada (avança uma fase). Saiu de cima antes -> o som para na hora e a rega não conta.
 // Coloque no objeto "regador" (SpriteRenderer). O BoxCollider2D é adicionado sozinho
 // e é ele que recebe o clique.
 [RequireComponent(typeof(BoxCollider2D))]
@@ -14,6 +15,7 @@ public class Regador : MonoBehaviour
     [Header("Regar")]
     [SerializeField] AudioClip somRegar;              // arraste Assets/Som/regador
     [SerializeField, Range(0f, 1f)] float volume = 1f;
+    [SerializeField] float tempoParaRegar = 1.5f;     // segundos segurando em cima da planta até regar
 
     [Header("Hover")]
     [SerializeField] Color corHover = new Color(0.75f, 0.75f, 0.75f, 1f); // cor com o mouse em cima
@@ -26,6 +28,10 @@ public class Regador : MonoBehaviour
     Color corOriginal;
     int ordemOriginal;
     bool segurando;
+
+    Vaso alvo;        // planta sendo regada agora
+    float progresso;  // segundos regando o alvo atual
+    AudioSource fonte;
 
     void Awake()
     {
@@ -64,37 +70,67 @@ public class Regador : MonoBehaviour
         if (sr) sr.sortingOrder = ordemArrastando;
     }
 
+    // Chamado todo frame enquanto o botão do mouse está segurando o regador
     void OnMouseDrag()
     {
         transform.position = Mouse() + offset;
+        Regando();
     }
 
     void OnMouseUp()
     {
         segurando = false;
         Destacar(false);
-        TentarRegar();
+        PararRega();
         StartCoroutine(Voltar());
     }
 
-    // Soltou perto de um vaso com sede (dentro do Raio Plantio do vaso): rega
-    void TentarRegar()
+    void OnDisable() => PararRega();
+
+    void Regando()
     {
+        // Planta com sede embaixo do regador (dentro do Raio Plantio do vaso)
         Vector2 centro = sr ? (Vector2)sr.bounds.center : (Vector2)transform.position;
         var vaso = Vaso.MaisPerto(centro) ?? Vaso.MaisPerto(Mouse());
-        if (vaso == null || !vaso.Regar()) return;
+        if (vaso != null && !vaso.ComSede) vaso = null;
 
-        if (somRegar)
+        if (vaso != alvo) { alvo = vaso; progresso = 0f; } // trocou de planta: recomeça
+        if (alvo == null) { PararSom(); return; }
+
+        TocarSom();
+        progresso += Time.deltaTime;
+        if (progresso >= tempoParaRegar)
         {
-            var fonte = GetComponent<AudioSource>();
-            if (!fonte)
-            {
-                fonte = gameObject.AddComponent<AudioSource>();
-                fonte.playOnAwake = false;
-                fonte.spatialBlend = 0f;
-            }
-            fonte.PlayOneShot(somRegar, volume);
+            alvo.Regar(); // avança a fase, escurece o vaso, tira a sede
+            PararRega();
         }
+    }
+
+    void PararRega()
+    {
+        alvo = null;
+        progresso = 0f;
+        PararSom();
+    }
+
+    void TocarSom()
+    {
+        if (!somRegar) return;
+        if (!fonte)
+        {
+            fonte = gameObject.AddComponent<AudioSource>();
+            fonte.playOnAwake = false;
+            fonte.spatialBlend = 0f;
+            fonte.loop = true; // repete enquanto estiver regando
+        }
+        fonte.clip = somRegar;
+        fonte.volume = volume;
+        if (!fonte.isPlaying) fonte.Play();
+    }
+
+    void PararSom()
+    {
+        if (fonte && fonte.isPlaying) fonte.Stop(); // para na hora
     }
 
     IEnumerator Voltar()

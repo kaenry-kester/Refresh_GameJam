@@ -3276,7 +3276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cec304ada92bd49bbbe3abd6b920cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorTempo
-  duracaoDia: 180
+  duracaoDia: 90
 --- !u!1 &2005193628
 GameObject:
   m_ObjectHideFlags: 0

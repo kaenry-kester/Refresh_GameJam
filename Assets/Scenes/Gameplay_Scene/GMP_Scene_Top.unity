@@ -261,7 +261,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -269,7 +269,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &141913832
 GameObject:
@@ -416,7 +416,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -424,7 +424,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &181661610
 Transform:
@@ -435,8 +435,8 @@ Transform:
   m_GameObject: {fileID: 181661608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 7.38, z: -0}
-  m_LocalScale: {x: 7.0634, y: 7.0634, z: 7.0634}
+  m_LocalPosition: {x: 0.3, y: 4.2, z: -0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 2.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1681051418}
@@ -784,7 +784,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -792,7 +792,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &700346500
 GameObject:
@@ -949,6 +949,7 @@ MonoBehaviour:
   ordemArrastando: 100
   somRegar: {fileID: 8300000, guid: 70b5f854960cf4b449c9213ed4df8037, type: 3}
   volume: 1
+  tempoParaRegar: 1.5
   corHover: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   escalaHover: 1.08
 --- !u!1001 &790773916
@@ -1113,6 +1114,12 @@ MonoBehaviour:
   raioPlantio: 1
   escurecer: 0.6
   iconeSede: {fileID: 1364748147}
+  posicaoPlanta: {x: 0.3, y: 4.2}
+  tamanhoPorFase:
+  - 0.3
+  - 1
+  - 1.7
+  - 2.3
 --- !u!212 &795794637
 SpriteRenderer:
   serializedVersion: 2
@@ -1691,7 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cec304ada92bd49bbbe3abd6b920cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorTempo
-  duracaoDia: 180
+  duracaoDia: 90
 --- !u!1001 &1144022993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2327,6 +2334,12 @@ MonoBehaviour:
   raioPlantio: 1
   escurecer: 0.6
   iconeSede: {fileID: 1591279965}
+  posicaoPlanta: {x: 0.3, y: 4.2}
+  tamanhoPorFase:
+  - 0.3
+  - 1
+  - 1.7
+  - 2.3
 --- !u!50 &1681051421
 Rigidbody2D:
   serializedVersion: 5
@@ -2758,6 +2771,12 @@ MonoBehaviour:
   raioPlantio: 1
   escurecer: 0.6
   iconeSede: {fileID: 1192616043}
+  posicaoPlanta: {x: 0.3, y: 4.2}
+  tamanhoPorFase:
+  - 0.3
+  - 1
+  - 1.7
+  - 2.3
 --- !u!212 &2020576515
 SpriteRenderer:
   serializedVersion: 2

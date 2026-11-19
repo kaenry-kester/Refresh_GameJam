@@ -12,6 +12,13 @@ public class Vaso : MonoBehaviour
     [SerializeField] float raioPlantio = 1f;        // soltar a semente até essa distância (unidades do mundo) planta
     [SerializeField, Range(0f, 1f)] float escurecer = 0.6f; // cor do vaso com semente (1 = igual, 0 = preto)
     [SerializeField] GameObject iconeSede; // filho do vaso com o ícone "sede" (aparece quando o dia avança)
+
+    [Header("Planta em cima do vaso")]
+    [Tooltip("Posição da Planta (filho do vaso), igual para todas as fases")]
+    [SerializeField] Vector2 posicaoPlanta = new Vector2(0.3f, 4.2f);
+    [Tooltip("Tamanho do desenho em cada fase (unidades do mundo, 1 = um quadrado da grade): Inicial, Broto, Crescendo, Final.\n" +
+             "O desenho é ajustado para caber num quadrado desse tamanho, sem distorcer, qualquer que seja a imagem.")]
+    [SerializeField] float[] tamanhoPorFase = { 0.5f, 1.0f, 2.0f, 2.3f };
     public ItemData Semente { get; private set; }
     public int Fase { get; private set; }   // 0 = Semente, 1 = Broto, 2 = Crescendo, 3 = Final
     public bool Regado { get; private set; } // já cuidado hoje (vaso escuro)
@@ -191,6 +198,18 @@ public class Vaso : MonoBehaviour
         DefinirRegado(false);
     }
 
+    // Tamanho só da parte desenhada do sprite (sem o espaço transparente em volta).
+    // Usa a malha "Tight" que a Unity gera contornando o desenho.
+    static Vector2 TamanhoDoDesenho(Sprite sprite)
+    {
+        var v = sprite.vertices;
+        if (v == null || v.Length == 0) return sprite.bounds.size;
+
+        Vector2 min = v[0], max = v[0];
+        foreach (var p in v) { min = Vector2.Min(min, p); max = Vector2.Max(max, p); }
+        return max - min;
+    }
+
     // Chamado pelo Regador. Retorna true se regou (planta com sede).
     // Cada rega avança uma fase: Semente -> Broto -> Crescendo -> Final.
     public bool Regar()
@@ -218,6 +237,24 @@ public class Vaso : MonoBehaviour
         if (!plantaRenderer) return;
         plantaRenderer.sprite = Semente ? Semente.SpriteDaFase(Fase) : null;
         plantaRenderer.enabled = Semente != null;
+
+        // Mesma posição em todas as fases; tamanho padronizado conforme a fase
+        var t = plantaRenderer.transform;
+        t.localPosition = new Vector3(posicaoPlanta.x, posicaoPlanta.y, t.localPosition.z);
+        if (plantaRenderer.sprite && tamanhoPorFase != null && tamanhoPorFase.Length > 0)
+        {
+            float alvo = tamanhoPorFase[Mathf.Clamp(Fase, 0, tamanhoPorFase.Length - 1)];
+            Vector2 desenho = TamanhoDoDesenho(plantaRenderer.sprite);
+            float maior = Mathf.Max(desenho.x, desenho.y);
+            if (maior > 0f)
+            {
+                // Escala no mundo para o lado maior do desenho ter "alvo" unidades,
+                // compensando a escala do vaso (pai), que não é igual em x e y
+                float s = alvo / maior;
+                Vector3 pai = t.parent ? t.parent.lossyScale : Vector3.one;
+                t.localScale = new Vector3(s / Mathf.Abs(pai.x), s / Mathf.Abs(pai.y), 1f);
+            }
+        }
     }
 
     // Vaso visível mais perto do ponto (mundo), dentro do raioPlantio dele. null = nenhum perto.
