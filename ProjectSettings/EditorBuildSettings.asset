@@ -56,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase1/Fase1_Top.unity
     guid: e003b1a321ce5a0439f425396ba89967
+  - enabled: 1
+    path: Assets/Scenes/Tela Preta 1.unity
+    guid: 1c517ebbf8e0f0049b6072c9820140dd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
