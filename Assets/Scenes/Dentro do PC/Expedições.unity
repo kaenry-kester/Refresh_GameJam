@@ -131,9 +131,10 @@ GameObject:
   - component: {fileID: 8506435}
   - component: {fileID: 8506434}
   - component: {fileID: 8506433}
-  m_Layer: 0
-  m_Name: Button (Legacy) (3)
-  m_TagString: Untagged
+  - component: {fileID: 8506436}
+  m_Layer: 5
+  m_Name: BotaoExpedicao4
+  m_TagString: Orelha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +240,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506431}
   m_CullTransparentMesh: 1
+--- !u!114 &8506436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97626d3a22c2424ebb1250535a1e274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::MudarDeExpedi\xE7\xE3o"
+  Elementos:
+  - {fileID: 1172022314}
+  - {fileID: 1536612669}
+  - {fileID: 1786895468}
+  - {fileID: 1206446376}
+  - {fileID: 1023713531}
+  - {fileID: 313891041}
+  - {fileID: 377552423}
+  - {fileID: 695461271}
+  - {fileID: 1205980748}
+  - {fileID: 860019157}
+  - {fileID: 2068996738}
 --- !u!1 &82324953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,9 +1208,10 @@ GameObject:
   - component: {fileID: 713336962}
   - component: {fileID: 713336961}
   - component: {fileID: 713336960}
-  m_Layer: 0
-  m_Name: Button (Legacy) (2)
-  m_TagString: Untagged
+  - component: {fileID: 713336963}
+  m_Layer: 5
+  m_Name: BotaoExpedicao3
+  m_TagString: Orelha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1291,6 +1317,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713336958}
   m_CullTransparentMesh: 1
+--- !u!114 &713336963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713336958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97626d3a22c2424ebb1250535a1e274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::MudarDeExpedi\xE7\xE3o"
+  Elementos:
+  - {fileID: 1172022314}
+  - {fileID: 1536612669}
+  - {fileID: 1786895468}
+  - {fileID: 1206446376}
+  - {fileID: 1023713531}
+  - {fileID: 366592674}
+  - {fileID: 1416871081}
+  - {fileID: 515849505}
+  - {fileID: 1710236531}
+  - {fileID: 1423095310}
+  - {fileID: 2047535568}
 --- !u!1 &744751766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,9 +1534,10 @@ GameObject:
   - component: {fileID: 858195573}
   - component: {fileID: 858195572}
   - component: {fileID: 858195571}
-  m_Layer: 0
-  m_Name: Button (Legacy)
-  m_TagString: Untagged
+  - component: {fileID: 858195574}
+  m_Layer: 5
+  m_Name: BotaoExpedicao1
+  m_TagString: Orelha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1553,67 +1604,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 858195572}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 867756986}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 744751766}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 114231943}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2048457588}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 465575580}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &858195572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,6 +1643,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858195569}
   m_CullTransparentMesh: 1
+--- !u!114 &858195574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858195569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97626d3a22c2424ebb1250535a1e274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::MudarDeExpedi\xE7\xE3o"
+  Elementos:
+  - {fileID: 1172022314}
+  - {fileID: 1536612669}
+  - {fileID: 1786895468}
+  - {fileID: 1206446376}
+  - {fileID: 1023713531}
+  - {fileID: 867756986}
+  - {fileID: 114231943}
+  - {fileID: 2048457588}
+  - {fileID: 465575580}
+  - {fileID: 744751766}
+  - {fileID: 2032403581}
 --- !u!1 &860019157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,9 +3085,10 @@ GameObject:
   - component: {fileID: 1586852787}
   - component: {fileID: 1586852786}
   - component: {fileID: 1586852785}
-  m_Layer: 0
-  m_Name: Button (Legacy) (1)
-  m_TagString: Untagged
+  - component: {fileID: 1586852788}
+  m_Layer: 5
+  m_Name: BotaoExpedicao2
+  m_TagString: Orelha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3178,6 +3194,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586852783}
   m_CullTransparentMesh: 1
+--- !u!114 &1586852788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586852783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97626d3a22c2424ebb1250535a1e274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::MudarDeExpedi\xE7\xE3o"
+  Elementos:
+  - {fileID: 1172022314}
+  - {fileID: 1536612669}
+  - {fileID: 1786895468}
+  - {fileID: 1206446376}
+  - {fileID: 1023713531}
+  - {fileID: 921930634}
+  - {fileID: 993101262}
+  - {fileID: 513681015}
+  - {fileID: 82324953}
+  - {fileID: 691315393}
+  - {fileID: 1272762930}
 --- !u!1 &1710236531
 GameObject:
   m_ObjectHideFlags: 0

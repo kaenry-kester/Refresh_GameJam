@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background_Day
   - VasoHolder
+  - Orelha
   layers:
   - Default
   - TransparentFX
