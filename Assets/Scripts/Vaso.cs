@@ -62,8 +62,44 @@ public class Vaso : MonoBehaviour
     Transform holderAtual; // holder em que o vaso está encaixado
     List<Transform> holdersPerto = new List<Transform>();
 
+    // true durante CriarNoSlot: o vaso que está nascendo é novo (não é o vaso fixo da cena)
+    static bool criandoPorCodigo;
+
+    // Cria um vaso novo (ex.: comprado na loja) encaixado no slot. Retorna o vaso criado.
+    public static Vaso CriarNoSlot(GameObject prefab, Transform slot)
+    {
+        if (!prefab || !slot || OcupanteDe(slot) != null) return null;
+
+        criandoPorCodigo = true;
+        GameObject go;
+        try { go = Instantiate(prefab, slot.position, Quaternion.identity); }
+        finally { criandoPorCodigo = false; }
+
+        var v = go.GetComponent<Vaso>();
+        if (!v) { Destroy(go); return null; }
+        v.holderAtual = slot;
+        v.SeguirHolder();
+        return v;
+    }
+
+    // Slot (Vaso_Holder) livre mais perto do ponto, dentro do raio. null = nenhum.
+    public static Transform SlotLivreMaisPerto(Vector2 ponto, float raio)
+    {
+        Transform melhor = null;
+        float menor = raio;
+        foreach (var h in GameObject.FindGameObjectsWithTag("VasoHolder"))
+        {
+            if (!h.activeInHierarchy || OcupanteDe(h.transform) != null) continue;
+            float d = Vector2.Distance(ponto, h.transform.position);
+            if (d <= menor) { menor = d; melhor = h.transform; }
+        }
+        return melhor;
+    }
+
     void Awake()
     {
+        if (criandoPorCodigo) criadoPorBotao = true; // vaso novo: não conta como os vasos fixos da cena
+
         if (!criadoPorBotao)
         {
             if (instancias.TryGetValue(id, out Vaso existente) && existente != null && existente != this)

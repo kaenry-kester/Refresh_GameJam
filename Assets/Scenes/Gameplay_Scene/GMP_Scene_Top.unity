@@ -1059,7 +1059,9 @@ MonoBehaviour:
   - 1
   - 1.7
   - 2.3
-  perdaAguaPorDia: 30
+  delayEncher: 1
+  passoAgua: 25
+  toleranciaAcima: 25
 --- !u!212 &795794637
 SpriteRenderer:
   serializedVersion: 2
@@ -2374,7 +2376,9 @@ MonoBehaviour:
   - 1
   - 1.7
   - 2.3
-  perdaAguaPorDia: 30
+  delayEncher: 1
+  passoAgua: 25
+  toleranciaAcima: 25
 --- !u!50 &1681051421
 Rigidbody2D:
   serializedVersion: 5
@@ -2904,7 +2908,9 @@ MonoBehaviour:
   - 1
   - 1.7
   - 2.3
-  perdaAguaPorDia: 30
+  delayEncher: 1
+  passoAgua: 25
+  toleranciaAcima: 25
 --- !u!212 &2020576515
 SpriteRenderer:
   serializedVersion: 2

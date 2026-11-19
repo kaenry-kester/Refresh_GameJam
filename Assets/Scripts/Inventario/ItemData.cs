@@ -11,6 +11,10 @@ public class ItemData : ScriptableObject
     public Sprite iconeFrigorificoPos;
     public bool ehSemente;      // só sementes podem ser plantadas em vasos
 
+    [Header("Vaso (item que vira um vaso novo no jardim)")]
+    public bool ehVaso;           // soltar este item num slot livre da GMP_Scene_Top cria um vaso
+    public GameObject prefabVaso; // o prefab do vaso que será criado
+
     // "Pacote" de crescimento: o que aparece em cima do vaso em cada fase.
     // Plantou -> Semente. Cada dia regado avança uma fase até a Final.
     [Header("Crescimento no vaso (só sementes)")]

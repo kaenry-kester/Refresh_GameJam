@@ -12,6 +12,8 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour,
     IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler, IPointerDownHandler
 {
+    [Tooltip("Distância (unidades do mundo) para um item Vaso encaixar num slot livre do jardim")]
+    [SerializeField] float raioSlotVaso = 1.5f;
     [Tooltip("Segurou mais que isso (segundos) = não é clique (é para pegar/arrastar)")]
     [SerializeField] float tempoMaxClique = 0.3f;
     float inicioToque;
@@ -205,12 +207,22 @@ public class InventorySlot : MonoBehaviour,
         var cam = Camera.main;
         if (!cam) return;
 
-        // Basta soltar perto do vaso (raioPlantio de cada vaso)
         Vector2 mundo = cam.ScreenToWorldPoint(telaPos);
+        var item = Inventario.De(local)[Indice].item;
+
+        // Item "Vaso": soltou perto de um slot livre do jardim -> cria um vaso novo ali
+        if (item.ehVaso)
+        {
+            var slot = Vaso.SlotLivreMaisPerto(mundo, raioSlotVaso);
+            if (slot && Vaso.CriarNoSlot(item.prefabVaso, slot))
+                Inventario.RemoverDoSlot(Indice, 1, local);
+            return;
+        }
+
+        // Semente: basta soltar perto do vaso (raioPlantio de cada vaso)
         var vaso = Vaso.MaisPerto(mundo);
         if (vaso == null) return;
 
-        var item = Inventario.De(local)[Indice].item;
         if (vaso.Plantar(item))
             Inventario.RemoverDoSlot(Indice, 1, local);
     }

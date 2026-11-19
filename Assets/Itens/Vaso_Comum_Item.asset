@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45efbe3a796b9a84ca7c896fb6acf741, type: 3}
+  m_Name: Vaso_Comum_Item
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  nome: Vaso comum
+  icone: {fileID: 6316735056278173055, guid: 26ad72308ff0d6d46a46b9d43e92b81b, type: 3}
+  iconeFrigorificoPre: {fileID: 0}
+  iconeFrigorificoPos: {fileID: 0}
+  ehSemente: 0
+  ehVaso: 1
+  prefabVaso: {fileID: 6902524892966045393, guid: 1d04f8ebeaa28ee448e4b2ef2cd7c0bf, type: 3}
+  spriteSemente: {fileID: 0}
+  spriteBroto: {fileID: 0}
+  spriteCrescendo: {fileID: 0}
+  spriteFinal: {fileID: 0}
+  precoBase: 100
+  aguaNecessaria: 50
+  co2Necessario: 50
+  luzNecessaria: 50
+  fotoPainel: {fileID: 0}
+  descricao: 
+  habitat: 
+  itemColhido: {fileID: 0}
