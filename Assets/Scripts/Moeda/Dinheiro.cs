@@ -28,4 +28,12 @@ public class Dinheiro : MonoBehaviour
     {
         TextoQuantia.text = QuantiaAtual.ToString();
     }
+
+    // Soma dinheiro de qualquer script (ex.: venda de planta) e atualiza os textos da cena
+    public static void Ganhar(int valor)
+    {
+        QuantiaAtual += valor;
+        foreach (var d in FindObjectsByType<Dinheiro>(FindObjectsSortMode.None))
+            d.AtualizarTexto();
+    }
 }

@@ -21,3 +21,13 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 68d77c58663af5843a98cf8c865c0dfb, type: 3}
   spriteFinal: {fileID: 21300000, guid: 5cb608048085ba14dbfa3c52527a2551, type: 3}
+  precoBase: 260
+  aguaNecessaria: 50
+  co2Necessario: 75
+  luzNecessaria: 75
+  descricao: "Explorado desde 1500 por sua madeira vermelha, usada para tingir tecidos,
+    foi cortado at\xE9 quase sumir. Depois, a destrui\xE7\xE3o da Mata Atl\xE2ntica
+    e o uso da madeira em arcos de violino acabaram com as \xFAltimas \xE1rvores."
+  habitat: "Origin\xE1rio da Mata Atl\xE2ntica do litoral brasileiro, do Rio Grande
+    do Norte ao Rio de Janeiro, em clima quente e \xFAmido."
+  itemColhido: {fileID: 11400000}

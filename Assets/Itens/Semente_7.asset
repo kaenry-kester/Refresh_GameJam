@@ -21,3 +21,13 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 9fdca8067900606459288f2ba14d9dbd, type: 3}
   spriteFinal: {fileID: 21300000, guid: f60bd38781e49964ca0de935c3a6b7e1, type: 3}
+  precoBase: 70
+  aguaNecessaria: 50
+  co2Necessario: 75
+  luzNecessaria: 100
+  descricao: "Perdeu espa\xE7o quando a Caatinga e o Cerrado foram desmatados para
+    pasto e lavoura. Sem as abelhas grandes que o polinizavam, que tamb\xE9m sumiram,
+    deixou de dar frutos."
+  habitat: "Origin\xE1rio da Caatinga e do Cerrado, subia em arbustos e cercas sob
+    sol forte e calor seco."
+  itemColhido: {fileID: 11400000}

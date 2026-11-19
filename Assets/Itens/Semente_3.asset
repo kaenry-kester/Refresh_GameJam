@@ -21,3 +21,13 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 1bc2511bceb8faf4cac988ace7324b2d, type: 3}
   spriteFinal: {fileID: 21300000, guid: 26dce55bd6dd0fe47851caea173dc2de, type: 3}
+  precoBase: 220
+  aguaNecessaria: 50
+  co2Necessario: 50
+  luzNecessaria: 50
+  descricao: "Desapareceu com o desmatamento das matas para planta\xE7\xF5es de cacau
+    e pastos. Por ser rara e bonita, foi arrancada das \xE1rvores por coletores at\xE9
+    n\xE3o sobrar nenhuma."
+  habitat: "Vivia nos troncos e galhos das \xE1rvores da Mata Atl\xE2ntica do sul
+    da Bahia, em lugares \xFAmidos e de meia-sombra."
+  itemColhido: {fileID: 11400000}

@@ -19,6 +19,7 @@ public class EncerrarNoite : MonoBehaviour, IPointerClickHandler
     [SerializeField] Text textoLegacy;
     [Tooltip("{0} vira o número do dia que acabou")]
     [SerializeField] string mensagem = "Dia {0} concluído, avançando para o próximo dia!";
+    [SerializeField] Color corTexto = Color.white;
 
     [SerializeField] float duracaoTela = 3f;     // segundos que a tela escura fica
     [SerializeField] bool somenteANoite = true; // de dia a porta não pergunta nada
@@ -51,8 +52,8 @@ public class EncerrarNoite : MonoBehaviour, IPointerClickHandler
         painelPergunta.SetActive(false);
 
         string texto = string.Format(mensagem, GerenciadorTempo.Dia);
-        if (textoTMP) textoTMP.text = texto;
-        if (textoLegacy) textoLegacy.text = texto;
+        if (textoTMP) { textoTMP.text = texto; textoTMP.color = corTexto; }
+        if (textoLegacy) { textoLegacy.text = texto; textoLegacy.color = corTexto; }
         telaConcluido.SetActive(true);
 
         // Avança já com a tela escura cobrindo (a troca noite -> dia acontece por trás)

@@ -21,3 +21,12 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: e937bed247010284daba8be6773c5203, type: 3}
   spriteFinal: {fileID: 21300000, guid: ab7b8ea146c8164419a7fa17936fe195, type: 3}
+  precoBase: 200
+  aguaNecessaria: 25
+  co2Necessario: 50
+  luzNecessaria: 50
+  descricao: "Foi arrancada das rochas por coletores encantados com suas folhas prateadas.
+    A extra\xE7\xE3o de pedra nas encostas destruiu os \xFAltimos lugares onde crescia."
+  habitat: "Nascia em fendas de pared\xF5es rochosos \xEDngremes do Paran\xE1 e de
+    S\xE3o Paulo, com muita claridade e pouca terra."
+  itemColhido: {fileID: 11400000}

@@ -12,6 +12,7 @@ public class Vaso : MonoBehaviour
     [SerializeField] float raioPlantio = 1f;        // soltar a semente até essa distância (unidades do mundo) planta
     [SerializeField, Range(0f, 1f)] float escurecer = 0.6f; // cor do vaso com semente (1 = igual, 0 = preto)
     [SerializeField] GameObject iconeSede; // filho do vaso com o ícone "sede" (aparece quando o dia avança)
+    [SerializeField] GameObject iconeColetar; // filho do vaso com o ícone "coletar" (aparece na fase final)
 
     [Header("Planta em cima do vaso")]
     [Tooltip("Posição da Planta (filho do vaso), igual para todas as fases")]
@@ -19,10 +20,34 @@ public class Vaso : MonoBehaviour
     [Tooltip("Tamanho do desenho em cada fase (unidades do mundo, 1 = um quadrado da grade): Inicial, Broto, Crescendo, Final.\n" +
              "O desenho é ajustado para caber num quadrado desse tamanho, sem distorcer, qualquer que seja a imagem.")]
     [SerializeField] float[] tamanhoPorFase = { 0.5f, 1.0f, 2.0f, 2.3f };
+    [Header("Água")]
+    [Tooltip("Segundos regando para a água subir um degrau (0 -> 25 -> 50 -> 75 -> 100)")]
+    [SerializeField] float delayEncher = 1f;
+    [Tooltip("Quanto sobe a cada degrau (em %)")]
+    [SerializeField] float passoAgua = 25f;
+    [Tooltip("Quanto acima do medidor ainda é o ponto certo. Passou disso = encharcada (perde o bônus).\n" +
+             "Ex.: precisa 25 -> certo de 25 a 50. Precisa 50 -> certo de 50 a 75.")]
+    [SerializeField] float toleranciaAcima = 25f;
+
     public ItemData Semente { get; private set; }
     public int Fase { get; private set; }   // 0 = Semente, 1 = Broto, 2 = Crescendo, 3 = Final
-    public bool Regado { get; private set; } // já cuidado hoje (vaso escuro)
-    public bool ComSede => Semente != null && !Regado;
+    public float Agua { get; private set; } // 0 a 100%
+    public float AguaNecessaria => Semente ? Semente.aguaNecessaria : 0f;
+    public float AguaMaxIdeal => Mathf.Min(100f, AguaNecessaria + toleranciaAcima);
+
+    // Pouca água = abaixo do medidor (sede). Muita água = acima do limite (encharcada).
+    public bool AguaSuficiente => Semente != null && Agua >= AguaNecessaria;
+    public bool Encharcada => Semente != null && Agua > AguaMaxIdeal + 0.01f;
+    public bool AguaIdeal => AguaSuficiente && !Encharcada; // o ponto certo: ganha o bônus
+    public bool Regado => AguaSuficiente;
+    public bool ComSede => Semente != null && !AguaSuficiente && !Pronta;
+    public bool Pronta => Semente != null && Fase >= ItemData.FaseFinal; // fase final
+
+    // Requisitos cumpridos para o bônus de venda. CO2 e Luz ainda não estão desbloqueados.
+    public int RequisitosCumpridos => AguaIdeal ? 1 : 0;
+    public int PrecoVenda => Semente ? Semente.PrecoVenda(RequisitosCumpridos, Fase) : 0;
+
+    bool cresceuHoje; // a planta só avança uma fase por dia
 
     SpriteRenderer sr;
     Color corOriginal;
@@ -56,6 +81,7 @@ public class Vaso : MonoBehaviour
         if (sr) corOriginal = sr.color;
 
         if (iconeSede) iconeSede.SetActive(false);
+        if (iconeColetar) iconeColetar.SetActive(false);
         if (plantaRenderer) plantaRenderer.enabled = false; // vaso começa vazio
         GerenciadorTempo.AoNovoDia += AoNovoDia;
 
@@ -79,7 +105,75 @@ public class Vaso : MonoBehaviour
 
     void AoCarregarCena(Scene cena, LoadSceneMode modo)
     {
-        gameObject.SetActive(cena.name == "GMP_Scene_Top" || cena.name == "GMP_Scene_Center");
+        // Os vasos só aparecem na GMP_Scene_Top (nas outras cenas ficam escondidos, mas continuam vivos)
+        gameObject.SetActive(cena.name == CENA_ARRASTAR);
+    }
+
+    Vector3 cliqueInicio;
+    bool cliqueNaPlanta;
+
+    void Update()
+    {
+        // Clique (sem arrastar) numa planta abre o painel do vaso
+        if (Input.GetMouseButtonDown(0))
+        {
+            cliqueNaPlanta = Semente != null && !PainelVaso.Aberto && !MouseSobreUI() && MouseEmCima();
+            cliqueInicio = Input.mousePosition;
+        }
+        if (Input.GetMouseButtonUp(0) && cliqueNaPlanta)
+        {
+            cliqueNaPlanta = false;
+            if ((Input.mousePosition - cliqueInicio).sqrMagnitude < 10f * 10f) // não foi um arraste
+                PainelVaso.Abrir(this);
+        }
+    }
+
+    static bool MouseSobreUI() =>
+        UnityEngine.EventSystems.EventSystem.current &&
+        UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+
+    bool MouseEmCima()
+    {
+        var cam = Camera.main;
+        if (!cam) return false;
+        Vector3 m = cam.ScreenToWorldPoint(Input.mousePosition);
+        m.z = 0f;
+
+        bool naPlanta = plantaRenderer && plantaRenderer.enabled && Contem(plantaRenderer.bounds, m);
+        bool noVaso = sr && Contem(sr.bounds, m);
+        return naPlanta || noVaso;
+    }
+
+    static bool Contem(Bounds b, Vector3 p) =>
+        p.x >= b.min.x && p.x <= b.max.x && p.y >= b.min.y && p.y <= b.max.y;
+
+    // "Manter na coleção": a planta (na fase em que está) vai para o inventário e o vaso fica vazio
+    public bool Colher()
+    {
+        if (Semente == null) return false;
+        if (!Inventario.Adicionar(Semente.ItemColhido(Fase))) return false; // inventário cheio: não colhe
+
+        Esvaziar();
+        return true;
+    }
+
+    // Vende a planta em qualquer fase: preço proporcional ao tamanho + bônus. O vaso fica vazio.
+    public int Vender()
+    {
+        if (Semente == null) return 0;
+        int valor = PrecoVenda;
+        Dinheiro.Ganhar(valor);
+        Esvaziar();
+        return valor;
+    }
+
+    void Esvaziar()
+    {
+        Semente = null;
+        Fase = 0;
+        Agua = 0f;
+        AtualizarPlanta();
+        AtualizarVisual(); // cor normal, sem ícones
     }
 
     void LateUpdate()
@@ -104,7 +198,7 @@ public class Vaso : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!PodeArrastar()) return;
+        if (!PodeArrastar() || PainelVaso.Aberto) return;
 
         isBeingHeld = true;
 
@@ -191,11 +285,14 @@ public class Vaso : MonoBehaviour
         return maisPerto;
     }
 
-    // Dia novo: planta que ainda não chegou na fase final volta à cor normal e fica com sede
+    // Dia novo: a água zera e o jogador precisa regar de novo (aparece a sede).
     void AoNovoDia()
     {
-        if (Semente == null || Fase >= ItemData.FaseFinal) return; // vazio ou já crescida: não muda
-        DefinirRegado(false);
+        if (Semente == null) return;
+
+        cresceuHoje = false;
+        Agua = 0f;
+        AtualizarVisual();
     }
 
     // Tamanho só da parte desenhada do sprite (sem o espaço transparente em volta).
@@ -210,27 +307,58 @@ public class Vaso : MonoBehaviour
         return max - min;
     }
 
-    // Chamado pelo Regador. Retorna true se regou (planta com sede).
-    // Cada rega avança uma fase: Semente -> Broto -> Crescendo -> Final.
-    public bool Regar()
-    {
-        if (!ComSede) return false;
+    float tempoRegando;          // segundos acumulados para o próximo degrau
+    int ultimoFrameRegando = -10;
 
-        Fase = Mathf.Min(Fase + 1, ItemData.FaseFinal);
-        AtualizarPlanta();
-        DefinirRegado(true);
+    // Chamado TODO frame pelos regadores enquanto estão em cima da planta.
+    // A cada "Delay Encher" segundos a água sobe um degrau (25%), até 100%.
+    // É o jogador que precisa tirar o regador no ponto certo. Saiu de cima: o degrau em andamento recomeça.
+    // Retorna true enquanto ainda pode entrar água (para o som tocar).
+    // Ao chegar no necessário, a planta avança uma fase (no máximo uma por dia).
+    public bool Regando(float dt)
+    {
+        if (Semente == null || Agua >= 100f || dt <= 0f) return false;
+
+        if (Time.frameCount - ultimoFrameRegando > 1) tempoRegando = 0f; // não estava regando: recomeça
+        ultimoFrameRegando = Time.frameCount;
+
+        tempoRegando += dt;
+        if (tempoRegando >= delayEncher)
+        {
+            tempoRegando = 0f;
+            Agua = Mathf.Min(100f, Agua + passoAgua);
+            if (AguaSuficiente) Crescer();
+            AtualizarVisual();
+        }
         return true;
     }
 
-    // Regado = vaso escuro e sem sede. Com sede = cor normal e ícone de sede.
-    void DefinirRegado(bool regado)
+    void Crescer()
     {
-        Regado = regado;
-        if (sr) sr.color = regado
+        if (cresceuHoje || Pronta) return;
+        cresceuHoje = true;
+        Fase = Mathf.Min(Fase + 1, ItemData.FaseFinal);
+        AtualizarPlanta();
+    }
+
+    // Água no nível = vaso escuro. Com sede = cor normal e ícone de sede.
+    // Pronta (fase final) = ícone "coletar" no lugar da sede.
+    void AtualizarVisual()
+    {
+        if (sr) sr.color = AguaSuficiente
             ? new Color(corOriginal.r * escurecer, corOriginal.g * escurecer, corOriginal.b * escurecer, corOriginal.a)
             : corOriginal;
-        if (iconeSede) iconeSede.SetActive(!regado);
+        if (iconeSede) iconeSede.SetActive(ComSede);
+        if (iconeColetar) iconeColetar.SetActive(Pronta);
     }
+
+    // Tamanho da planta numa fase (o mesmo padrão usado em cima do vaso no jardim)
+    public float TamanhoNaFase(int fase) =>
+        tamanhoPorFase != null && tamanhoPorFase.Length > 0
+            ? tamanhoPorFase[Mathf.Clamp(fase, 0, tamanhoPorFase.Length - 1)] : 1f;
+
+    public Sprite SpriteVaso => sr ? sr.sprite : null;
+    public Sprite SpritePlanta => plantaRenderer && plantaRenderer.enabled ? plantaRenderer.sprite : null;
 
     void AtualizarPlanta()
     {
@@ -285,8 +413,10 @@ public class Vaso : MonoBehaviour
 
         Semente = item;
         Fase = 0;
+        Agua = 0f;
+        cresceuHoje = true; // no dia do plantio ela não cresce, só recebe água
         AtualizarPlanta();
-        DefinirRegado(true); // dia do plantio já conta como cuidado: vaso escuro, sem sede
+        AtualizarVisual();  // começa sem água: aparece a sede
         return true;
     }
 

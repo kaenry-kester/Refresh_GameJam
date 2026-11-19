@@ -21,3 +21,13 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 3a9df51fd2b6bfd4091a6d4b428ed17e, type: 3}
   spriteFinal: {fileID: 21300000, guid: a6933475ee0f7d142ac7ed4644a41242, type: 3}
+  precoBase: 90
+  aguaNecessaria: 50
+  co2Necessario: 50
+  luzNecessaria: 75
+  descricao: "Foi extinta pela ocupa\xE7\xE3o das restingas para constru\xE7\xE3o
+    de casas e hot\xE9is de praia. A retirada de plantas para jardins e a polui\xE7\xE3o
+    completaram o desaparecimento."
+  habitat: "Crescia no solo arenoso das restingas e nas bordas da Mata Atl\xE2ntica,
+    do Sul ao Nordeste do Brasil, em pleno sol."
+  itemColhido: {fileID: 11400000}

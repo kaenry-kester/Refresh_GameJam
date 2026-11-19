@@ -21,3 +21,13 @@ MonoBehaviour:
   spriteBroto: {fileID: 21300000, guid: c24de3c867c8f3440b0a138de748b6f1, type: 3}
   spriteCrescendo: {fileID: 21300000, guid: 128956ebb4fda06498e44251f3ac5eda, type: 3}
   spriteFinal: {fileID: 21300000, guid: 6d2119ce7813dea46a6ca8414ca34969, type: 3}
+  precoBase: 300
+  aguaNecessaria: 75
+  co2Necessario: 50
+  luzNecessaria: 75
+  descricao: "Desapareceu quando os pared\xF5es onde vivia foram tomados por trilhas,
+    ocupa\xE7\xE3o humana e inc\xEAndios. A coleta ilegal de bulbos para colecionadores
+    acabou com as \xFAltimas popula\xE7\xF5es."
+  habitat: "Nascia em fendas de rochas \xEDngremes da Serra dos \xD3rg\xE3os (RJ),
+    perto de cachoeiras, sempre envolta pela neblina da Mata Atl\xE2ntica."
+  itemColhido: {fileID: 11400000}

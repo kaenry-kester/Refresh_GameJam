@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 // Regador que pode ser arrastado pela cena. Ao soltar, volta para o lugar de origem.
-// Segurando em cima de uma planta com sede: toca o som de água e, depois de "Tempo Para Regar"
-// segundos, ela é regada (avança uma fase). Saiu de cima antes -> o som para na hora e a rega não conta.
+// Segurando em cima de uma planta: a água dela sobe (Agua Por Segundo) até o que ela precisa,
+// com o som tocando. Saiu de cima ou encheu -> o som para na hora.
 // Coloque no objeto "regador" (SpriteRenderer). O BoxCollider2D é adicionado sozinho
 // e é ele que recebe o clique.
 [RequireComponent(typeof(BoxCollider2D))]
@@ -15,7 +15,6 @@ public class Regador : MonoBehaviour
     [Header("Regar")]
     [SerializeField] AudioClip somRegar;              // arraste Assets/Som/regador
     [SerializeField, Range(0f, 1f)] float volume = 1f;
-    [SerializeField] float tempoParaRegar = 1.5f;     // segundos segurando em cima da planta até regar
 
     [Header("Hover")]
     [SerializeField] Color corHover = new Color(0.75f, 0.75f, 0.75f, 1f); // cor com o mouse em cima
@@ -29,8 +28,6 @@ public class Regador : MonoBehaviour
     int ordemOriginal;
     bool segurando;
 
-    Vaso alvo;        // planta sendo regada agora
-    float progresso;  // segundos regando o alvo atual
     AudioSource fonte;
 
     void Awake()
@@ -64,6 +61,7 @@ public class Regador : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (PainelVaso.Aberto) return; // com o painel aberto, usa-se o regador do painel
         StopAllCoroutines();
         segurando = true;
         offset = transform.position - Mouse(); // segura pelo ponto clicado, sem "pular"
@@ -73,12 +71,14 @@ public class Regador : MonoBehaviour
     // Chamado todo frame enquanto o botão do mouse está segurando o regador
     void OnMouseDrag()
     {
+        if (!segurando) return;
         transform.position = Mouse() + offset;
         Regando();
     }
 
     void OnMouseUp()
     {
+        if (!segurando) return;
         segurando = false;
         Destacar(false);
         PararRega();
@@ -89,29 +89,16 @@ public class Regador : MonoBehaviour
 
     void Regando()
     {
-        // Planta com sede embaixo do regador (dentro do Raio Plantio do vaso)
+        // Planta embaixo do regador (dentro do Raio Plantio do vaso)
         Vector2 centro = sr ? (Vector2)sr.bounds.center : (Vector2)transform.position;
         var vaso = Vaso.MaisPerto(centro) ?? Vaso.MaisPerto(Mouse());
-        if (vaso != null && !vaso.ComSede) vaso = null;
 
-        if (vaso != alvo) { alvo = vaso; progresso = 0f; } // trocou de planta: recomeça
-        if (alvo == null) { PararSom(); return; }
-
-        TocarSom();
-        progresso += Time.deltaTime;
-        if (progresso >= tempoParaRegar)
-        {
-            alvo.Regar(); // avança a fase, escurece o vaso, tira a sede
-            PararRega();
-        }
+        // Som só enquanto a água está subindo
+        if (vaso != null && vaso.Regando(Time.deltaTime)) TocarSom();
+        else PararSom();
     }
 
-    void PararRega()
-    {
-        alvo = null;
-        progresso = 0f;
-        PararSom();
-    }
+    void PararRega() => PararSom();
 
     void TocarSom()
     {
