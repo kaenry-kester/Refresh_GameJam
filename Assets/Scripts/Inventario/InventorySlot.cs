@@ -163,6 +163,9 @@ public class InventorySlot : MonoBehaviour,
 
         icone.canvasRenderer.SetAlpha(alphaDuranteArraste);
         Seguir(ev);
+
+        // Arrastando um vaso novo: destaca os slots livres do jardim
+        if (Entrada != null && Entrada.item && Entrada.item.ehVaso) Vaso_Holder.Destacar(true);
     }
 
     public void OnDrag(PointerEventData ev)
@@ -175,6 +178,7 @@ public class InventorySlot : MonoBehaviour,
         if (fantasma) Destroy(fantasma.gameObject);
         fantasma = null;
         icone.canvasRenderer.SetAlpha(1f);
+        Vaso_Holder.Destacar(false); // soltou: tira o destaque dos slots
 
         // Soltou fora da UI? Tenta entregar para algo no mundo (ex.: um vaso).
         if (ev.pointerCurrentRaycast.gameObject == null && TemItem)

@@ -100,6 +100,8 @@ public class Vaso : MonoBehaviour
         return v;
     }
 
+    public static bool SlotOcupado(Transform slot) => OcupanteDe(slot) != null;
+
     // Slot (Vaso_Holder) livre mais perto do ponto, dentro do raio. null = nenhum.
     public static Transform SlotLivreMaisPerto(Vector2 ponto, float raio)
     {

@@ -2055,6 +2055,7 @@ GameObject:
   - component: {fileID: 968265134}
   - component: {fileID: 968265133}
   - component: {fileID: 968265132}
+  - component: {fileID: 968265135}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -2175,6 +2176,46 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &968265135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968265130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883789a49bc3fc147b9aca7e5e8b0946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PainelExpedicoes
+  expedicoes:
+  - nome: "Expedi\xE7\xE3o 1"
+    aba: {fileID: 858195571}
+    custo: 700
+    duracaoDias: 3
+    recompensa: {fileID: 11400000, guid: b3b5b3d1262845e4cb75808e2be045c3, type: 2}
+  - nome: "Expedi\xE7\xE3o 2"
+    aba: {fileID: 1586852785}
+    custo: 500
+    duracaoDias: 4
+    recompensa: {fileID: 11400000, guid: 0e4f00b6ff061f441ba0168a68c645f3, type: 2}
+  - nome: "Expedi\xE7\xE3o 3"
+    aba: {fileID: 713336960}
+    custo: 350
+    duracaoDias: 2
+    recompensa: {fileID: 11400000, guid: 8b6c3833263ce9f4b89c9da78e685d0e, type: 2}
+  - nome: "Expedi\xE7\xE3o 4"
+    aba: {fileID: 8506433}
+    custo: 500
+    duracaoDias: 4
+    recompensa: {fileID: 11400000, guid: 5965078e4bf22c04cb9a15fefa08453b, type: 2}
+  botaoIniciar: {fileID: 1536612671}
+  somIniciar: {fileID: 8300000, guid: d9f49493f782c024493ce870b3b3b176, type: 3}
+  volume: 1
+  aviso: {fileID: 0}
+  textoSemDinheiro: Dinheiro insuficiente
+  textoEmAndamento: "Expedi\xE7\xE3o em andamento: faltam {0} dia(s)"
+  textoIniciou: "Expedi\xE7\xE3o iniciada!"
 --- !u!1 &993101262
 GameObject:
   m_ObjectHideFlags: 0
