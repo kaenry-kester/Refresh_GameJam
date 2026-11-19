@@ -5,7 +5,7 @@ public class Dinheiro : MonoBehaviour
 {
 
     [SerializeField] private TMP_Text TextoQuantia;
-    public int QuantiaAtual = 0;
+    public static int QuantiaAtual = 0; // static: o valor sobrevive à troca de cenas
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
