@@ -62,6 +62,12 @@ public class ItemData : ScriptableObject
     public ItemData itemColhido;
 
     [System.NonSerialized] ItemData[] colhidosGerados;
+
+    // Planta colhida: de qual semente/espécie ela veio (para o painel mostrar água, CO2, luz, textos...)
+    [System.NonSerialized] public ItemData origem;
+    [System.NonSerialized] public int faseColhida = -1;
+    public ItemData Especie => origem ? origem : this;
+    public bool EhPlantaColhida => origem != null && faseColhida == FaseFinal;
     static readonly string[] nomesFase = { "semente", "broto", "crescendo", "adulta" };
 
     // Item da planta guardada na coleção, um por fase (o mesmo item para a mesma fase, então empilha).
@@ -71,7 +77,12 @@ public class ItemData : ScriptableObject
         fase = Mathf.Clamp(fase, 0, FaseFinal);
         // "Item Colhido" só vale se for um item de planta de verdade
         // (não a própria semente nem outra semente, senão o inventário receberia uma semente)
-        if (fase == FaseFinal && itemColhido && itemColhido != this && !itemColhido.ehSemente) return itemColhido;
+        if (fase == FaseFinal && itemColhido && itemColhido != this && !itemColhido.ehSemente)
+        {
+            itemColhido.origem = this; // o painel do inventário mostra os dados desta espécie
+            itemColhido.faseColhida = FaseFinal;
+            return itemColhido;
+        }
 
         if (colhidosGerados == null || colhidosGerados.Length != FaseFinal + 1)
             colhidosGerados = new ItemData[FaseFinal + 1];
@@ -81,6 +92,8 @@ public class ItemData : ScriptableObject
         item.name = item.nome = (string.IsNullOrEmpty(nome) ? name : nome.Trim()) + " (" + nomesFase[fase] + ")";
         item.icone = Recortar(SpriteDaFase(fase));
         item.ehSemente = false;
+        item.origem = this;
+        item.faseColhida = fase;
         return colhidosGerados[fase] = item;
     }
 

@@ -8,9 +8,13 @@ using UnityEngine.UI;
 //   - soltar em outro slot  -> move / troca / junta pilhas
 //   - soltar num Vaso (mundo) -> planta a semente (Vaso.Plantar)
 //   - soltar em qualquer outro lugar -> o item volta para o slot
+// Clique rápido (sem arrastar e sem segurar) numa planta adulta -> abre o painel do vaso.
 public class InventorySlot : MonoBehaviour,
-    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
+    IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler, IPointerDownHandler
 {
+    [Tooltip("Segurou mais que isso (segundos) = não é clique (é para pegar/arrastar)")]
+    [SerializeField] float tempoMaxClique = 0.3f;
+    float inicioToque;
     [SerializeField] Inventario.Local local = Inventario.Local.Inventario; // de quem é este slot
     [SerializeField] Image icone;
     [SerializeField] TMP_Text qtd;
@@ -182,8 +186,19 @@ public class InventorySlot : MonoBehaviour,
             Inventario.Mover(origem.local, origem.Indice, local, Indice, 1); // arrastar leva só 1 da pilha
     }
 
-    // Vazio de propósito: impede que clicar num slot "atravesse" e feche o frigorífico
-    public void OnPointerClick(PointerEventData ev) { }
+    public void OnPointerDown(PointerEventData ev) => inicioToque = Time.unscaledTime;
+
+    // Também impede que clicar num slot "atravesse" e feche o frigorífico.
+    // A Unity só chama o clique se NÃO houve arraste; aqui também ignoramos quando segurou demais.
+    public void OnPointerClick(PointerEventData ev)
+    {
+        if (ev.button != PointerEventData.InputButton.Left || ev.dragging) return;
+        if (Time.unscaledTime - inicioToque > tempoMaxClique) return; // pressionou/segurou: não abre
+
+        var e = Entrada;
+        if (e != null && e.item && e.item.EhPlantaColhida)
+            PainelVaso.AbrirItem(e.item, indice, local);
+    }
 
     void SoltarNoMundo(Vector2 telaPos)
     {

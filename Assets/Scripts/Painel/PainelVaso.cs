@@ -161,11 +161,52 @@ public class PainelVaso : MonoBehaviour
         if (Instancia && vaso && vaso.Semente) Instancia.Mostrar(vaso);
     }
 
+    // Abre o painel para uma planta adulta guardada no inventário (clique no slot)
+    public static void AbrirItem(ItemData item, int indice, Inventario.Local local)
+    {
+        if (Instancia && item && item.EhPlantaColhida) Instancia.MostrarItem(item, indice, local);
+    }
+
+    // Planta do inventário aberta no painel (null = o painel está mostrando um vaso)
+    ItemData itemAberto;
+    int itemIndice;
+    Inventario.Local itemLocal;
+    bool ModoItem => itemAberto != null;
+    Sprite ultimoSpriteVaso; // vaso mostrado atrás da planta do inventário
+    RegadorUI regadorUI;     // escondido quando a planta vem do inventário (não há o que regar)
+
     void Mostrar(Vaso vaso)
     {
         VasoAtual = vaso;
-        var p = vaso.Semente;
+        itemAberto = null;
+        if (vaso.SpriteVaso) ultimoSpriteVaso = vaso.SpriteVaso;
+        MostrarDados(vaso.Semente);
+
+        // Água: barra e medidor abrem já no nível atual
+        nivelMostrado = vaso.Agua;
+        MostrarAgua();
+        AtualizarDinamico();
+    }
+
+    void MostrarItem(ItemData item, int indice, Inventario.Local local)
+    {
+        VasoAtual = null;
+        itemAberto = item;
+        itemIndice = indice;
+        itemLocal = local;
+        MostrarDados(item.Especie);
+
+        nivelMostrado = 0f; // planta fora do vaso: sem água
+        MostrarAgua();
+        AtualizarDinamico();
+    }
+
+    // Textos e medidores fixos da espécie
+    void MostrarDados(ItemData p)
+    {
         raiz.SetActive(true);
+        if (!regadorUI) regadorUI = GetComponentInChildren<RegadorUI>(true);
+        if (regadorUI) regadorUI.gameObject.SetActive(!ModoItem);
 
         Escrever(titulo, string.IsNullOrEmpty(p.nome) ? p.name : p.nome.Trim());
         Escrever(textoAgua, $"{p.aguaNecessaria:0}%");
@@ -179,27 +220,37 @@ public class PainelVaso : MonoBehaviour
         if (barraLuz) barraLuz.gameObject.SetActive(false);
         Marcar(marcaCO2, xMedidorCO2, 0f);
         Marcar(marcaLuz, xMedidorLuz, 0f);
-
-        // Água: barra e medidor abrem já no nível atual
-        nivelMostrado = vaso.Agua;
-        MostrarAgua();
-
-        AtualizarDinamico();
     }
 
     public void Fechar()
     {
         VasoAtual = null;
+        itemAberto = null;
         if (raiz) raiz.SetActive(false);
+    }
+
+    // O item do inventário ainda está no slot que foi clicado?
+    bool ItemAindaNoSlot()
+    {
+        var dados = Inventario.De(itemLocal);
+        return itemIndice >= 0 && itemIndice < dados.Count && dados[itemIndice] != null && dados[itemIndice].item == itemAberto;
     }
 
     void Update()
     {
         if (!Aberto) return;
-        if (!VasoAtual || !VasoAtual.Semente) { Fechar(); return; } // vaso esvaziou
 
-        // Barra e medidor sobem/descem juntos, suave, até a água atual
-        nivelMostrado = Mathf.MoveTowards(nivelMostrado, VasoAtual.Agua, velocidadeNivel * Time.deltaTime);
+        if (ModoItem)
+        {
+            if (!ItemAindaNoSlot()) { Fechar(); return; } // vendeu o último / moveu de slot
+            nivelMostrado = 0f;
+        }
+        else
+        {
+            if (!VasoAtual || !VasoAtual.Semente) { Fechar(); return; } // vaso esvaziou
+            // Barra e medidor sobem/descem juntos, suave, até a água atual
+            nivelMostrado = Mathf.MoveTowards(nivelMostrado, VasoAtual.Agua, velocidadeNivel * Time.deltaTime);
+        }
         MostrarAgua();
         AtualizarDinamico();
     }
@@ -210,9 +261,10 @@ public class PainelVaso : MonoBehaviour
     {
         var v = VasoAtual;
         Marcar(marcaAgua, xMedidorAgua, nivelMostrado);
-        if (!barraAgua || !v) return;
+        if (!barraAgua) return;
 
         barraAgua.fillAmount = Preenchimento(barraAgua, marcaAgua, xMedidorAgua, nivelMostrado);
+        if (!v) { barraAgua.color = corAgua; return; } // planta do inventário: sem água
         bool chegou = nivelMostrado >= v.AguaNecessaria - 0.01f;
         bool passou = nivelMostrado > v.AguaMaxIdeal + 0.01f;
         barraAgua.color = passou ? corEncharcada : chegou ? corCorreta : corAgua;
@@ -221,6 +273,7 @@ public class PainelVaso : MonoBehaviour
     // O que muda enquanto o painel está aberto (fase da planta, preço, botões)
     void AtualizarDinamico()
     {
+        if (ModoItem) { AtualizarItem(); return; }
         var v = VasoAtual;
 
         // Sempre na mesma posição e tamanho, qualquer que seja o vaso/planta.
@@ -231,7 +284,8 @@ public class PainelVaso : MonoBehaviour
         // Moldura: a foto própria da semente; sem foto, o desenho da planta na fase atual
         Mostrar(fotoPlanta, v.Semente.fotoPainel ? v.Semente.fotoPainel : ItemData.Recortar(v.SpritePlanta));
         Fixar(imagemVaso, layoutVaso);
-        PosicionarPlanta(v);
+        float final = v.TamanhoNaFase(ItemData.FaseFinal);
+        PosicionarPlanta(v.Fase, final > 0f ? v.TamanhoNaFase(v.Fase) / final : 1f);
 
         Escrever(textoVender, string.Format(formatoVender, v.PrecoVenda));
         // Vender funciona em qualquer fase (o preço acompanha o tamanho da planta).
@@ -240,8 +294,36 @@ public class PainelVaso : MonoBehaviour
         if (botaoColetar) botaoColetar.interactable = v.Pronta;
     }
 
+    // Planta adulta do inventário: mesma tela, sem regar. Já está na coleção (Manter desativado).
+    void AtualizarItem()
+    {
+        var p = itemAberto.Especie;
+        var spriteFinal = ItemData.Recortar(p.SpriteDaFase(ItemData.FaseFinal));
+
+        Mostrar(imagemVaso, ItemData.Recortar(ultimoSpriteVaso));
+        Mostrar(imagemPlanta, spriteFinal);
+        Mostrar(fotoPlanta, p.fotoPainel ? p.fotoPainel : spriteFinal);
+        Fixar(imagemVaso, layoutVaso);
+        PosicionarPlanta(ItemData.FaseFinal, 1f);
+
+        Escrever(textoVender, string.Format(formatoVender, PrecoItem));
+        if (botaoVender) botaoVender.interactable = true;
+        if (botaoColetar) botaoColetar.interactable = false;
+    }
+
+    // Planta do inventário vende pelo preço da adulta, sem bônus (fora do vaso não há água/CO2/luz)
+    int PrecoItem => itemAberto ? itemAberto.Especie.PrecoVenda(0, ItemData.FaseFinal) : 0;
+
     void Vender()
     {
+        if (ModoItem)
+        {
+            if (!ItemAindaNoSlot()) { Fechar(); return; }
+            int valor = PrecoItem;
+            if (Inventario.RemoverDoSlot(itemIndice, 1, itemLocal)) Dinheiro.Ganhar(valor);
+            if (!ItemAindaNoSlot()) Fechar(); // vendeu a última da pilha
+            return;
+        }
         if (VasoAtual && VasoAtual.Vender() > 0) Fechar();
     }
 
@@ -265,13 +347,11 @@ public class PainelVaso : MonoBehaviour
     // Mesma lógica do jardim: a base da planta (pivot embaixo, no meio do desenho) fica sempre no
     // mesmo ponto do vaso, e o tamanho segue a fase (proporção do Tamanho Por Fase do vaso).
     // A fase final fica do tamanho da caixa da Planta no prefab; as outras, menores na mesma proporção.
-    void PosicionarPlanta(Vaso v)
+    void PosicionarPlanta(int fase, float proporcao)
     {
         if (!imagemPlanta || !imagemPlanta.sprite) return;
         var rt = imagemPlanta.rectTransform;
 
-        float final = v.TamanhoNaFase(ItemData.FaseFinal);
-        float proporcao = final > 0f ? v.TamanhoNaFase(v.Fase) / final : 1f;
         float lado = Mathf.Max(layoutPlanta.tamanho.x, layoutPlanta.tamanho.y) * proporcao; // lado maior
 
         // Mantém a proporção do desenho (não estica)
@@ -284,7 +364,7 @@ public class PainelVaso : MonoBehaviour
         rt.localScale = layoutPlanta.escala;
         rt.sizeDelta = tamanho;
         float ajusteFase = ajusteYPorFase != null && ajusteYPorFase.Length > 0
-            ? ajusteYPorFase[Mathf.Clamp(v.Fase, 0, ajusteYPorFase.Length - 1)] : 0f;
+            ? ajusteYPorFase[Mathf.Clamp(fase, 0, ajusteYPorFase.Length - 1)] : 0f;
         rt.anchoredPosition = basePlanta + deslocamentoPlanta + new Vector2(0f, ajusteFase);
     }
 
