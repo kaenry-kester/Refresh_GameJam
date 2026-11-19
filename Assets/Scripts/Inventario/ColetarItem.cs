@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -26,17 +27,46 @@ public class ColetarItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Vector3 posOriginal;
     bool animando;
 
+    // Itens já coletados (cena + caminho na hierarquia). Static: sobrevive à troca de cenas,
+    // então cada item só pode ser pego uma vez e não reaparece ao voltar para a cena.
+    static readonly HashSet<string> coletados = new HashSet<string>();
+    string chave;
+
     void Awake()
     {
         rt = (RectTransform)transform;
         canvas = GetComponentInParent<Canvas>().rootCanvas;
+
+        chave = gameObject.scene.name + "|" + Caminho(transform);
+        if (coletados.Contains(chave)) gameObject.SetActive(false); // já foi pego antes
     }
+
+    // Ex.: "0:Canvas/5:Semente (1)" (o índice diferencia objetos com o mesmo nome)
+    static string Caminho(Transform t)
+    {
+        string c = t.GetSiblingIndex() + ":" + t.name;
+        for (var p = t.parent; p != null; p = p.parent)
+            c = p.GetSiblingIndex() + ":" + p.name + "/" + c;
+        return c;
+    }
+
+    void FoiColetado()
+    {
+        coletados.Add(chave);
+        MissaoSementes.Coletou(item);
+        gameObject.SetActive(false);
+    }
+
+    // Começa sem nada coletado a cada Play, mesmo sem domain reload.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Resetar() => coletados.Clear();
 
     // Mantido para quem ainda liga no OnClick de um Button
     public void Coletar()
     {
+        if (animando || coletados.Contains(chave)) return;
         if (coletarComClique && Inventario.Adicionar(item, quantidade))
-            gameObject.SetActive(false);
+            FoiColetado();
     }
 
     public void OnBeginDrag(PointerEventData ev)
@@ -98,7 +128,7 @@ public class ColetarItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         if (Inventario.AdicionarNoSlot(item, slot.Indice, quantidade, slot.Local))
         {
-            gameObject.SetActive(false);
+            FoiColetado();
             rt.localScale = e0;
             Restaurar(posOriginal);
         }

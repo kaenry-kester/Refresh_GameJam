@@ -25,6 +25,8 @@ public class SequenciaAudio : MonoBehaviour
 
     [Header("Troca de Cena")]
     public string nomeCenaDestino;
+    [Tooltip("Segundos até trocar de cena. 0 = troca quando os sons acabarem.")]
+    public float tempoAteTrocar = 0f;
 
     private AudioSource audioSource;
     private Coroutine sequencia;
@@ -44,28 +46,37 @@ public class SequenciaAudio : MonoBehaviour
 
     void OnDisable()
     {
-        if (sequencia != null)
-        {
-            StopCoroutine(sequencia);
-            sequencia = null;
-        }
+        StopAllCoroutines();
+        sequencia = null;
 
         if (audioSource != null)
             audioSource.Stop();
     }
     IEnumerator TocarSequencia()
     {
-        yield return TocarSom(som1, volume1, velocidade1);
-        yield return TocarSom(som2, volume2, velocidade2);
-        yield return TocarSom(som3, volume3, velocidade3);
-        yield return TocarSom(som4, volume4, velocidade4);
+        if (tempoAteTrocar > 0f)
+        {
+            // Tempo fixo: os sons tocam em paralelo e a cena troca no tempo certo
+            StartCoroutine(TocarSons());
+            yield return new WaitForSeconds(tempoAteTrocar);
+        }
+        else yield return TocarSons();
 
         sequencia = null;
 
         if (!string.IsNullOrEmpty(nomeCenaDestino))
         {
+            LembrarCena.SalvarTodas();
             SceneManager.LoadScene(nomeCenaDestino);
         }
+    }
+
+    IEnumerator TocarSons()
+    {
+        yield return TocarSom(som1, volume1, velocidade1);
+        yield return TocarSom(som2, volume2, velocidade2);
+        yield return TocarSom(som3, volume3, velocidade3);
+        yield return TocarSom(som4, volume4, velocidade4);
     }
 
     IEnumerator TocarSom(AudioClip clip, float volume, float velocidade)

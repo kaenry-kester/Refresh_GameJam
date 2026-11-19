@@ -179,7 +179,7 @@ public class InventorySlot : MonoBehaviour,
     public void OnDrop(PointerEventData ev)
     {
         if (ev.pointerDrag && ev.pointerDrag.TryGetComponent(out InventorySlot origem) && origem != this)
-            Inventario.Mover(origem.local, origem.Indice, local, Indice);
+            Inventario.Mover(origem.local, origem.Indice, local, Indice, 1); // arrastar leva só 1 da pilha
     }
 
     // Vazio de propósito: impede que clicar num slot "atravesse" e feche o frigorífico

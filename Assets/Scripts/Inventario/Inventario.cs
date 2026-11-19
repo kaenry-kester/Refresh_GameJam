@@ -93,7 +93,9 @@ public static class Inventario
 
     // Move o item de um slot para outro (pode ser entre inventário e frigorífico).
     // Destino vazio -> move. Mesmo item -> junta as pilhas. Item diferente -> troca de lugar.
-    public static bool Mover(Local lDe, int de, Local lPara, int para)
+    // maxMover limita quantas unidades saem da origem (1 = move só uma semente da pilha).
+    // Pilha com mais que maxMover em cima de item diferente -> não troca (volta pro slot).
+    public static bool Mover(Local lDe, int de, Local lPara, int para, int maxMover = int.MaxValue)
     {
         if (!Valido(lDe, de) || !Valido(lPara, para) || (lDe == lPara && de == para)) return false;
 
@@ -104,26 +106,27 @@ public static class Inventario
         if (a == null) return false;
 
         int lim = Limite(lPara);
+        int leva = Mathf.Min(lim, maxMover); // máximo que pode sair da origem
 
         if (b != null && b.item == a.item)
         {
             // Mesmo item: junta só o que couber no destino
-            int n = Mathf.Min(lim - b.qtd, a.qtd);
+            int n = Mathf.Min(lim - b.qtd, a.qtd, maxMover);
             if (n <= 0) return false;
             b.qtd += n;
             a.qtd -= n;
             if (a.qtd == 0) origem[de] = null;
         }
-        else if (b == null && a.qtd > lim)
+        else if (b == null && a.qtd > leva)
         {
-            // Destino vazio mas não cabe tudo (ex.: frigorífico): leva só o que cabe
-            destino[para] = new Entrada { item = a.item, qtd = lim };
-            a.qtd -= lim;
+            // Destino vazio mas não vai tudo (frigorífico ou só 1 da pilha): leva só uma parte
+            destino[para] = new Entrada { item = a.item, qtd = leva };
+            a.qtd -= leva;
         }
         else
         {
             // Troca de lugar, se os dois couberem no novo lugar
-            if (a.qtd > lim || (b != null && b.qtd > Limite(lDe))) return false;
+            if (a.qtd > leva || (b != null && b.qtd > Limite(lDe))) return false;
             destino[para] = a;
             origem[de] = b;
         }

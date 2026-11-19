@@ -16,6 +16,9 @@ public class Scene_PreGameplay : MonoBehaviour
 
     void Start()
     {
+        // Voltou para uma cena com LembrarCena: o diálogo já foi visto, a cena é restaurada como estava
+        if (LembrarCena.JaVisitada(gameObject.scene)) return;
+
         StartCoroutine(Sequencia());
     }
 
@@ -36,15 +39,17 @@ public class Scene_PreGameplay : MonoBehaviour
         Text2.SetActive(true);
 
         clicou = false;
-        yield return new WaitUntil(() => clicou);
 
-        // clicar no botao
-        Text2.SetActive(false);
-        Text3.SetActive(true);
+        // Text3 é opcional: deixe vazio no Inspector para ter só 2 diálogos
+        // (na Fase1_Right o Dialogo3 aparece só ao completar a missão, pelo MissaoSementes)
+        if (Text3 != null)
+        {
+            yield return new WaitUntil(() => clicou);
+            Text2.SetActive(false);
+            Text3.SetActive(true);
+            clicou = false;
+        }
 
-        clicou = false;
-
-        // clicar no botao
         BotaoProximo.SetActive(false);
         BotaoComecar.SetActive(true);
     }
