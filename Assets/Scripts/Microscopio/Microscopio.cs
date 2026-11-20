@@ -13,6 +13,7 @@ public class Microscopio : MonoBehaviour, IPointerClickHandler, IDropHandler
 
     // Fóssil levado ao microscópio (a cena de fusão lê daqui). Ele continua no inventário.
     public static ItemData FossilSelecionado { get; private set; }
+    public static void Limpar() => FossilSelecionado = null; // a reconstrução terminou
 
     public void OnPointerClick(PointerEventData ev)
     {

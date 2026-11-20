@@ -14,6 +14,12 @@ public class ItemData : ScriptableObject
     [Header("Vaso (item que vira um vaso novo no jardim)")]
     public bool ehVaso;           // soltar este item num slot livre da GMP_Scene_Top cria um vaso
     public bool ehFossil;         // recompensa de expedição (fica no inventário; pode ir ao microscópio)
+    [Tooltip("Só fósseis: semente que este fóssil vira na tela de Reconstrução")]
+    public ItemData sementeReconstruida;
+
+    [Header("Lista de afazeres (fica sempre no último slot do inventário)")]
+    public bool ehListaAfazeres;
+    public Sprite imagemLista; // imagem grande que abre ao clicar
     public GameObject prefabVaso; // o prefab do vaso que será criado
 
     // "Pacote" de crescimento: o que aparece em cima do vaso em cada fase.

@@ -88,6 +88,7 @@ public static class Inventario
         if (!Valido(l, i)) return false;
         var a = Array(l);
         if (a[i] == null || a[i].qtd < qtd) return false;
+        if (Fixo(a[i].item)) return false; // lista de afazeres nunca sai
 
         a[i].qtd -= qtd;
         if (a[i].qtd == 0) a[i] = null;
@@ -111,6 +112,7 @@ public static class Inventario
         var a = origem[de];
         var b = destino[para];
         if (a == null) return false;
+        if (Fixo(a.item) || (b != null && Fixo(b.item))) return false; // lista de afazeres não sai do lugar
 
         // Entrando na geladeira (vindo do inventário): só sementes "pré".
         // Vale também para a troca de lugar, quando o item do inventário iria para a geladeira.
@@ -185,6 +187,17 @@ public static class Inventario
 
     static int IndiceDe(ItemData item) => System.Array.FindIndex(slots, e => e != null && e.item == item);
     static bool Valido(Local l, int i) => i >= 0 && i < Array(l).Length;
+
+    // ---- Lista de afazeres: sempre no último slot do inventário ----
+    public static bool Fixo(ItemData item) => item && item.ehListaAfazeres;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void ColocarListaDeAfazeres()
+    {
+        var lista = Resources.Load<ItemData>("ListaAfazeres"); // Assets/Resources/ListaAfazeres.asset
+        if (!lista) { Debug.LogWarning("Inventario: Resources/ListaAfazeres não encontrado."); return; }
+        slots[Capacidade - 1] = new Entrada { item = lista, qtd = 1 };
+    }
 
     // Garante inventário e frigorífico vazios a cada Play, mesmo sem domain reload.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]

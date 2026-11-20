@@ -17,3 +17,4 @@ MonoBehaviour:
   ehSemente: 0
   ehVaso: 0
   ehFossil: 1
+  sementeReconstruida: {fileID: 11400000, guid: b3b5b3d1262845e4cb75808e2be045c3, type: 2}

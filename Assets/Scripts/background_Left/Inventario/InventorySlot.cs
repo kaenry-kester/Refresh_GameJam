@@ -154,6 +154,7 @@ public class InventorySlot : MonoBehaviour,
     public void OnBeginDrag(PointerEventData ev)
     {
         if (!TemItem) { ev.pointerDrag = null; return; } // slot vazio não arrasta
+        if (Inventario.Fixo(Entrada.item)) { ev.pointerDrag = null; return; } // lista de afazeres não arrasta
 
         // Cria o fantasma no canvas raiz, por cima de tudo, sem bloquear raycasts
         var go = new GameObject("ItemArrastado", typeof(RectTransform), typeof(Image));
@@ -213,6 +214,11 @@ public class InventorySlot : MonoBehaviour,
         if (Time.unscaledTime - inicioToque > tempoMaxClique) return; // pressionou/segurou: não abre
 
         var e = Entrada;
+        if (e != null && e.item && e.item.ehListaAfazeres)
+        {
+            ListaAfazeres.Abrir(e.item.imagemLista);
+            return;
+        }
         if (e != null && e.item && e.item.EhPlantaColhida)
             PainelVaso.AbrirItem(e.item, indice, local);
     }

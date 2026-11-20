@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45efbe3a796b9a84ca7c896fb6acf741, type: 3}
+  m_Name: ListaAfazeres
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  nome: Lista de afazeres
+  icone: {fileID: -5406439354224228001, guid: 338eec7041d265640a2199ae93ab8934, type: 3}
+  ehSemente: 0
+  ehVaso: 0
+  ehFossil: 0
+  ehListaAfazeres: 1
+  imagemLista: {fileID: -4287764522941642325, guid: 24f56ed69039e064093949c35e3385a5, type: 3}
