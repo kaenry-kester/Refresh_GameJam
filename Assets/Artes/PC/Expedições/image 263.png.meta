@@ -124,7 +124,7 @@ TextureImporter:
         width: 591
         height: 488
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,6 +137,7 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+<<<<<<<< HEAD:Assets/Artes/PC/Expedições/image 263.png.meta
     - serializedVersion: 2
       name: image 263_1
       rect:
@@ -159,11 +160,13 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+========
+>>>>>>>> Kauan06:Assets/Artes/PC/Doações/Doacao1.png.meta
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b56c73663b8f7a04181246f6f5543655
     internalID: 0
     vertices: []
     indices: 
