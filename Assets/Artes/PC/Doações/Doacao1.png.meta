@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 312cb88d7284a9348ab5d7f9c67598d1
+guid: 6ece872d50a69ea40846ef9ccbdb8b18
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -137,36 +137,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-<<<<<<<< HEAD:Assets/Artes/PC/Expedições/image 263.png.meta
-    - serializedVersion: 2
-      name: image 263_1
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 484
-        width: 35
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f474179c0d63c1b50800000000000000
-      internalID: 6565182627160082255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-========
->>>>>>>> Kauan06:Assets/Artes/PC/Doações/Doacao1.png.meta
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b56c73663b8f7a04181246f6f5543655
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -177,7 +152,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       image 263_0: -2169431989998540820
-      image 263_1: 6565182627160082255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
